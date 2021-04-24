@@ -8,6 +8,7 @@ var logger = require('morgan');
 
 var app = express();
 
+const markPlatsRouter = require('./Routes/markPlats.route');
 const cors = require('./Middlewares/cors');
 const httpsRedirect = require('./Middlewares/https.redirect');
 const limiter = require('./Middlewares/ddos.limiter');
@@ -25,7 +26,7 @@ app.use(httpsRedirect);
 app.use(cors.corsWithOptions);
 app.use(limiter.limiter);
 
-
+app.use('markplats',markPlatsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
