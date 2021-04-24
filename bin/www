@@ -1,0 +1,120 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('api:server');
+var http = require('http');
+
+const https = require('https');
+const fs = require('fs');
+
+const loggerApi = require('../Middlewares/logger').loggerApi;
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+app.set('secPort',port+443);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Create HTTPS server.
+ */
+
+var options = {
+  key: fs.readFileSync(__dirname+'/https/key.pem','utf-8'),
+  cert: fs.readFileSync(__dirname+'/https/cert.pem','utf-8')
+};
+
+var httpsServer = https.createServer(options,app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+
+/**
+ * Listen on provided port HTTPS, on all network interfaces.
+ */
+
+httpsServer.listen(app.get('secPort'), () => {
+  loggerApi.http(JSON.stringify({status:200,endPoint:'Listen',msg:'Server listening on port ' + app.get('secPort')}));
+  console.log('Server listening on port ',app.get('secPort'));
+});
+httpsServer.on('error', onError);
+httpsServer.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    loggerApi.error(JSON.stringify({error:String(err),status:500,endPoint:'Main',msg:"Error Happend"}));
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+    loggerApi.http(JSON.stringify({status:200,endPoint:'Listen',msg:"Server listening on" + bind}));
+  debug('Listening on ' + bind);
+}

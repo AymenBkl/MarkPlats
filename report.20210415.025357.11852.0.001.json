@@ -1,0 +1,156 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20210415.025357.11852.0.001.json",
+    "dumpEventTime": "2021-04-15T02:53:57Z",
+    "dumpEventTimeStamp": "1618448038004",
+    "processId": 11852,
+    "cwd": "I:\\Freelancer\\elom\\api\\api",
+    "commandLine": [
+      "F:\\Program Files\\node\\nodejs\\node.exe",
+      "./bin/www"
+    ],
+    "nodejsVersion": "v12.14.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.14.0",
+      "v8": "7.7.299.13-node.16",
+      "uv": "1.33.1",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.39.2",
+      "napi": "5",
+      "llhttp": "1.1.4",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.14.0/node-v12.14.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.14.0/node-v12.14.0.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.14.0/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.19041",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i7-3770K CPU @ 3.50GHz",
+        "speed": 3492,
+        "user": 956421,
+        "nice": 0,
+        "sys": 664890,
+        "idle": 12771515,
+        "irq": 97140
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-3770K CPU @ 3.50GHz",
+        "speed": 3492,
+        "user": 641984,
+        "nice": 0,
+        "sys": 360265,
+        "idle": 13390421,
+        "irq": 12500
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-3770K CPU @ 3.50GHz",
+        "speed": 3492,
+        "user": 1678468,
+        "nice": 0,
+        "sys": 541328,
+        "idle": 12172875,
+        "irq": 7531
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-3770K CPU @ 3.50GHz",
+        "speed": 3492,
+        "user": 690937,
+        "nice": 0,
+        "sys": 363078,
+        "idle": 13338656,
+        "irq": 4109
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-3770K CPU @ 3.50GHz",
+        "speed": 3492,
+        "user": 1191312,
+        "nice": 0,
+        "sys": 440515,
+        "idle": 12760843,
+        "irq": 6187
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-3770K CPU @ 3.50GHz",
+        "speed": 3492,
+        "user": 706203,
+        "nice": 0,
+        "sys": 357406,
+        "idle": 13329062,
+        "irq": 2843
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-3770K CPU @ 3.50GHz",
+        "speed": 3492,
+        "user": 1134031,
+        "nice": 0,
+        "sys": 432609,
+        "idle": 12826031,
+        "irq": 5093
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-3770K CPU @ 3.50GHz",
+        "speed": 3492,
+        "user": 813484,
+        "nice": 0,
+        "sys": 373046,
+        "idle": 13206140,
+        "irq": 3812
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "Ethernet",
+        "internal": false,
+        "mac": "94:de:80:ed:a8:42",
+        "address": "fe80::2c60:6142:54a5:7c91",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 11
+      },
+      {
+        "name": "Ethernet",
+        "internal": false,
+        "mac": "94:de:80:ed:a8:42",
+        "address": "192.168.1.104",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family":
