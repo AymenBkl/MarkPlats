@@ -7,7 +7,6 @@ const config = require('../config');
 
 const whiteList = [config.config.webURL,config.config.url,config.config.https,'http://localhost:4200'];
 
-const loggerAuth = require('./logger').loggerAuth;
 
 var corsOptionsDelegate = (req, callback) => {
   var corsOptions;
@@ -16,7 +15,6 @@ var corsOptionsDelegate = (req, callback) => {
     corsOptions = { origin: true };
   } else {
     corsOptions = { origin: false };
-    loggerAuth.error(JSON.stringify({error:'CORS',status:401,endPoint:'CORS',msg:'CORS NOT ALLOWED'}));
 
     callback('Not allowed by CORS',corsOptions)
   }

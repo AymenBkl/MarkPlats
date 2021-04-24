@@ -11,7 +11,6 @@ var http = require('http');
 const https = require('https');
 const fs = require('fs');
 
-const loggerApi = require('../Middlewares/logger').loggerApi;
 /**
  * Get port from environment and store in Express.
  */
@@ -51,7 +50,6 @@ server.on('listening', onListening);
  */
 
 httpsServer.listen(app.get('secPort'), () => {
-  loggerApi.http(JSON.stringify({status:200,endPoint:'Listen',msg:'Server listening on port ' + app.get('secPort')}));
   console.log('Server listening on port ',app.get('secPort'));
 });
 httpsServer.on('error', onError);
@@ -83,7 +81,6 @@ function normalizePort(val) {
 
 function onError(error) {
   if (error.syscall !== 'listen') {
-    loggerApi.error(JSON.stringify({error:String(err),status:500,endPoint:'Main',msg:"Error Happend"}));
     throw error;
   }
 
@@ -115,6 +112,5 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-    loggerApi.http(JSON.stringify({status:200,endPoint:'Listen',msg:"Server listening on" + bind}));
   debug('Listening on ' + bind);
 }

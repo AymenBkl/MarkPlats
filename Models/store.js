@@ -1,61 +1,21 @@
 const mongoose = require('mongoose');
 
-const hashUniqueValidator = require('./validators/hashUniqueValidator');
+const hashUniqueValidator = require('./validators/storeUniqueValidator');
 
-const passportLocalMongoose = require('passport-local-mongoose');
+const storeUniqueValidator = require('./validators/storeUniqueValidator');
 
 const Schema = mongoose.Schema;
 
-const hashSchema = new Schema({
-    firstName: {
+const storeSchema = new Schema({
+    link: {
         type: String,
         required: true,
         unique: true,
         index: true
     },
-    lastName: {
-        type: String,
-        required: true,
-        unique: true,
-        index: true
-    },
-    imageURL: {
-        type: String,
-        default: ''
-    },
-    username: {
-        type: String,
-        required: true,
-    },
-    address: {
-        type: String,
-        required: true,
-    },
-    city: {
-        type: String,
-        required: true,
-    },
-    country: {
-        type: String,
-        required: true,
-    },
-    postalCode: {
-        type: String,
-        required: true,
-    },
-    description: {
-        type: String,
-        required: true,
-    },
-    role: {
-        type: String,
-        default: 'admin'
-    },
-    devices:[{
-        
-    }]
 }, {
     timestamps: true
 })
-hashSchema.plugin(passportLocalMongoose);
-module.exports = mongoose.model('admin', hashSchema);
+
+storeUniqueValidator.validators.storeValidator(storeSchema);
+module.exports = mongoose.model('store', storeSchema);

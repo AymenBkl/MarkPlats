@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 module.exports.validators = {
-    hashValidator : (schema) => {
-        schema.path('hashId').validate(async (value) => {
-            const hashCount = await mongoose.models.hash.countDocuments({hash: value });
-            return !hashCount;
-          }, 'hash already exists');
+    storeValidator : (schema) => {
+        schema.path('link').validate(async (value) => {
+            const linkCount = await mongoose.models.store.countDocuments({link: value });
+            return !linkCount;
+          }, 'store already exists');
     },
 
 }
