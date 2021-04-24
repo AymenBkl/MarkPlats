@@ -26,7 +26,7 @@ app.use(httpsRedirect);
 app.use(cors.corsWithOptions);
 app.use(limiter.limiter);
 
-app.use('markplats',markPlatsRouter);
+app.use('/markplats',markPlatsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
