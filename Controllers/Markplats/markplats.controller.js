@@ -4,6 +4,7 @@ const createLink = require('./addLink');
 
 const getLinks = require('./getLinks');
 
+const deleteLink = require('./deleteLink');
 module.exports = {
     getSheet : (req,res,next) => {
         getSheet.getSheet();
@@ -15,5 +16,9 @@ module.exports = {
     
     getLinks: (req,res,next) => {
         getLinks.getLinks(res,'api');
+    },
+
+    deleteLink: (req,res,next) => {
+        deleteLink.deleteLink(res,req.body.link)
     }
 }

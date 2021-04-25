@@ -13,6 +13,8 @@ router.all('/', function(req, res, next) {
 
 .get('/getlinks',cors.corsWithOptions, markplats.getLinks)
 
+.put('/deletelink',cors.corsWithOptions, markplats.deleteLink)
+
 .post('/addlink',cors.corsWithOptions, markplats.addLink);
 
 

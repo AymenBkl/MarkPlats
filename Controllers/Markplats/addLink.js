@@ -11,7 +11,6 @@ module.exports.addLink = (res,link) => {
             }
         })
         .catch(err => {
-            console.log(err.errors.link.properties.message == 'store already exists');
             if (err.errors && err.errors.link && err.errors.link.properties){
                 res.json({status:500,msg:err.errors.link.properties.message,link:null});
 
