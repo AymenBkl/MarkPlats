@@ -1,0 +1,336 @@
+[
+    {
+      "fullName": "Telecommunicatie",
+      "id": 820,
+      "key": "telecommunicatie",
+      "name": "Telecommunicatie"
+    },
+    {
+      "fullName": "Antennes en Masten",
+      "id": 821,
+      "key": "antennes-en-masten",
+      "name": "Antennes en Masten",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Antwoordapparaten",
+      "id": 822,
+      "key": "antwoordapparaten",
+      "name": "Antwoordapparaten",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Carkits",
+      "id": 825,
+      "key": "carkits",
+      "name": "Carkits",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Datacommunicatie en VoIP",
+      "id": 1454,
+      "key": "datacommunicatie-en-voip",
+      "name": "Datacommunicatie",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Faxen",
+      "id": 826,
+      "key": "faxen",
+      "name": "Faxen",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "ISDN en ADSL",
+      "id": 827,
+      "key": "isdn-en-adsl",
+      "name": "ISDN en ADSL",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Apple iPhone",
+      "id": 1953,
+      "key": "mobiele-telefoons-apple-iphone",
+      "name": "Apple iPhone",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Blackberry",
+      "id": 1954,
+      "key": "mobiele-telefoons-blackberry",
+      "name": "Blackberry",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | HTC",
+      "id": 1685,
+      "key": "mobiele-telefoons-htc",
+      "name": "HTC",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Huawei",
+      "id": 2897,
+      "key": "mobiele-telefoons-huawei",
+      "name": "Huawei",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | LG",
+      "id": 1632,
+      "key": "mobiele-telefoons-lg",
+      "name": "LG",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Motorola",
+      "id": 834,
+      "key": "mobiele-telefoons-motorola",
+      "name": "Motorola",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Nokia",
+      "id": 836,
+      "key": "mobiele-telefoons-nokia",
+      "name": "Nokia",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Sagem",
+      "id": 840,
+      "key": "mobiele-telefoons-sagem",
+      "name": "Sagem",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Samsung",
+      "id": 841,
+      "key": "mobiele-telefoons-samsung",
+      "name": "Samsung",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Siemens",
+      "id": 842,
+      "key": "mobiele-telefoons-siemens",
+      "name": "Siemens",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Sony",
+      "id": 843,
+      "key": "mobiele-telefoons-sony",
+      "name": "Sony",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Overige merken",
+      "id": 837,
+      "key": "mobiele-telefoons-overige-merken",
+      "name": "Overige merken",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Batterijen en Accu's",
+      "id": 1683,
+      "key": "mobiele-telefoons-batterijen-en-accu-s",
+      "name": "Batterijen en Accu's",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Headsets",
+      "id": 1956,
+      "key": "mobiele-telefoons-headsets",
+      "name": "Headsets",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Apple iPhone",
+      "id": 829,
+      "key": "mobiele-telefoons-hoesjes-en-frontjes-apple-iphone",
+      "name": "Apple iPhone",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Blackberry",
+      "id": 2804,
+      "key": "mobiele-telefoons-hoesjes-en-frontjes-blackberry",
+      "name": "Blackberry",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Hoesjes en Frontjes | HTC",
+      "id": 2805,
+      "key": "mobiele-telefoons-hoesjes-en-frontjes-htc",
+      "name": "HTC",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Nokia",
+      "id": 2806,
+      "key": "mobiele-telefoons-hoesjes-en-frontjes-nokia",
+      "name": "Nokia",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Samsung",
+      "id": 2807,
+      "key": "mobiele-telefoons-hoesjes-en-frontjes-samsung",
+      "name": "Samsung",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Overige merken",
+      "id": 2808,
+      "key": "mobiele-telefoons-hoesjes-en-frontjes-overige-merken",
+      "name": "Overige merken",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Opladers en Autoladers",
+      "id": 1957,
+      "key": "mobiele-telefoons-opladers-en-autoladers",
+      "name": "Opladers en Autoladers",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Software",
+      "id": 1958,
+      "key": "mobiele-telefoons-software",
+      "name": "Software",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Mobiele telefoons | Toebehoren en Onderdelen",
+      "id": 1959,
+      "key": "mobiele-telefoons-toebehoren-en-onderdelen",
+      "name": "Toebehoren en Onderdelen",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Pda's",
+      "id": 340,
+      "key": "pda-s",
+      "name": "Pda's",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Pda's | Toebehoren",
+      "id": 1684,
+      "key": "pda-s-toebehoren",
+      "name": "Pda-toebehoren",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Portofoons en Walkie-talkies",
+      "id": 845,
+      "key": "portofoons-en-walkie-talkies",
+      "name": "Portofoons en Walkie-talkies",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Powerbanks",
+      "id": 3040,
+      "key": "powerbanks",
+      "name": "Powerbanks",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Prepaidkaarten en Simkaarten",
+      "id": 846,
+      "key": "prepaidkaarten-en-simkaarten",
+      "name": "Prepaidkaarten en Simkaarten",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Scanners",
+      "id": 848,
+      "key": "scanners",
+      "name": "Scanners",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Telefooncentrales",
+      "id": 850,
+      "key": "telefooncentrales",
+      "name": "Telefooncentrales",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Vaste telefoons | Handsets en Draadloos",
+      "id": 851,
+      "key": "vaste-telefoons-handsets-en-draadloos",
+      "name": "Draadloze handsets",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Vaste telefoons | Niet Draadloos",
+      "id": 852,
+      "key": "vaste-telefoons-niet-draadloos",
+      "name": "Niet-draadloze handsets",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Wearable-accessoires",
+      "id": 3043,
+      "key": "wearable-accessoires",
+      "name": "Wearable-accessoires",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Zenders en Ontvangers",
+      "id": 855,
+      "key": "zenders-en-ontvangers",
+      "name": "Zenders en Ontvangers",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    },
+    {
+      "fullName": "Overige Telecommunicatie",
+      "id": 844,
+      "key": "overige-telecommunicatie",
+      "name": "Overige Telecommunicatie",
+      "parentId": 820,
+      "parentKey": "telecommunicatie"
+    }
+  ]

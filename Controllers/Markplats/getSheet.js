@@ -3,6 +3,8 @@ const { GoogleSpreadsheet } = require('google-spreadsheet');
 const { promisify } = require('util');
 const creds = require('./Markplats-00ab3a6d201e.json');
 
+const categories = require('./categories.json');
+
 module.exports.getSheet = () => {
     accessSpreedSheet();
 }
@@ -13,7 +15,6 @@ async function accessSpreedSheet() {
     const info = await doc.loadInfo();
     console.log("info loaded");
     const sheetProduct = doc.sheetsByIndex[0];
-    const rowsRubriek = doc.sheetsByIndex[3].getRows();
     getProducts(sheetProduct);
     /**await sheet.loadCells('A1:I50');
     const a1 =  sheet.getCell(0,1);
@@ -23,7 +24,7 @@ async function accessSpreedSheet() {
     }**/
 }
 
-async function getProducts(sheetProduct,rowsRubriek) {
+async function getProducts(sheetProduct,rowsRubriekth) {
     const rows = await sheetProduct.getRows();
     let keys = ['On / Off','Group','Rubric','Type','Storage','Condition Product','Maximum Price','Maximum Distance','Seller Active Since'];
     rows.map(row => {
@@ -34,10 +35,3 @@ async function getProducts(sheetProduct,rowsRubriek) {
     
 }   
 
-async function getBlackListed(sheet) {
-
-}
-
-async function searchGroup(group,sheet) {
-
-}
