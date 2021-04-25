@@ -5,6 +5,10 @@ module.exports.config = {
     mongoDB: {
             url : 'mongodb://192.168.1.104:27017/marktpalts',
     },
+    email:{
+        user:' up.marktplaats.deals@gmail.com',
+        pass:'MPdeals77!'
+    }
     
 } 
 
