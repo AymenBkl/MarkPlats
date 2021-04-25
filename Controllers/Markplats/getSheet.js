@@ -15,7 +15,9 @@ async function accessSpreedSheet() {
     const info = await doc.loadInfo();
     console.log("info loaded");
     const sheetProduct = doc.sheetsByIndex[0];
-    getProducts(sheetProduct);
+    const sheetModels = doc.sheetsByIndex[4];
+    getUniqueModels(sheetModels);
+    //getProducts(sheetProduct);
     /**await sheet.loadCells('A1:I50');
     const a1 =  sheet.getCell(0,1);
     for(let i=0;i<50;i++){
@@ -34,4 +36,17 @@ async function getProducts(sheetProduct,rowsRubriekth) {
     })
     
 }   
+
+async function getUniqueModels(modelsRows){
+    let modelsSet = new Set();
+    const rowCounts = (await modelsRows.getRows()).length;
+    console.log(rowCounts,modelsRows.columnCount);
+    await modelsRows.loadCells(`B1:ZZ${rowCounts}`);
+    console.log(modelsRows.getCell(1,1).value)
+    for(let i=1;i<rowCounts;i++){
+        for(let j=1;j<modelsRows.columnCount;j++)
+        modelsSet.add(await modelsRows.getCell(i,j).value);
+    }
+    console.log(modelsSet);
+}
 
