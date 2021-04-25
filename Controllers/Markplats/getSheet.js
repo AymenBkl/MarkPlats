@@ -5,6 +5,7 @@ const creds = require('./Markplats-00ab3a6d201e.json');
 
 const categories = require('./categories.json');
 
+const prepareRequest = require('./prepareRequest');
 module.exports.getSheet = () => {
     accessSpreedSheet();
 }
@@ -60,20 +61,73 @@ async function getUniqueModels(modelsRows){
 }
 
 async function constructQuery(product,modelMap,user) {
-    let queryString = 'limit=100&offset=0';
-    console.log(user);
+    let queryString = 'limit=100&offset=0&sortBy=PRICE&viewOptions=list-view&searchInTitleAndDescription=true&sortOrder=DECREASING&l1CategoryId=820&l2CategoryId=841';
     queryString += '&postcode=' + user.Postal; 
     if (product.Rubric && product.Rubric != null){
         queryString += await buildModelsQuery(modelMap.get(product.Rubric));
     }
-    console.log(queryString)
+    if (product['Maximum Distance'] && product['Maximum Distance'] != null){
+        queryString += '&distanceMeters=' +product['Maximum Distance']*1000;
+    }
+    if (product['Maximum Price'] && product['Maximum Price'] != null){
+        queryString += '&attributeRanges[]=PriceCents%3A100%3A'+product['Maximum Price']*100;
+    }
+    if (product['Condition Product'] && product['Condition Product'] != null) {
+        if (product['Condition Product'] == 'New'){
+            queryString += '&attributesById[]=' + 30;
+        }
+        else if (product['Condition Product'] == 'Used'){
+            queryString += '&attributesById[]=' + 32;
+        }
+        else if (product['Condition Product'] == 'As good as new'){
+            queryString += '&attributesById[]=' + 31;
+        }
+        else {
+            queryString += '&attributesById[]=' + 31 + '&attributesById[]=' + 32 + '&attributesById[]=' + 30 ;
+        }
+    }
+    if (product['Storage'] && product['Storage'] != null) {
+        if (product['Storage'] == '16gb') {
+            queryString += '&attributesById[]=' + 12821;
+        }
+        else if (product['Storage'] == '32gb') {
+            queryString += '&attributesById[]=' + 12822;
+        }
+        else if (product['Storage'] == '64gb') {
+            queryString += '&attributesById[]=' + 12823;
+        }
+        else if (product['Storage'] == '128gb') {
+            queryString += '&attributesById[]=' + 12824;
+        }
+        else if (product['Storage'] == '256gb') {
+            queryString += '&attributesById[]=' + 12825;
+        }
+        else if (product['Storage'] == '512gb') {
+            queryString += '&attributesById[]=' + 12826;
+        }
+        else if (product['Storage'] == '8gb') {
+            queryString += '&attributesById[]=' + 12820;
+        }
+        else if (product['Storage'] == '1tb') {
+            queryString += '&attributesById[]=' + 12820;
+        }
+    }
+    console.log(queryString);
+    prepareRequest.prepareRequest(queryString)
+        .then((result) => {
+            console.log(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
 }
 
 async function buildModelsQuery(set) {
     let stringModelQuery = '';
     for(let modal of set){
         if (modal && modal != null && modal != 'alle modellen'){
-            stringModelQuery += '&attributesByKey[]="' + modal +'"';
+            let formatedModal = modal.replace(' ','%20')
+            stringModelQuery += '&attributeLabels[]=' + formatedModal +'';
         }
     }
     return stringModelQuery;

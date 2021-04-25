@@ -8,6 +8,10 @@ module.exports.config = {
     email:{
         user:' up.marktplaats.deals@gmail.com',
         pass:'MPdeals77!'
+    },
+
+    baseURL:{
+        url:'https://www.marktplaats.nl/lrp/api/search?'
     }
     
 } 
