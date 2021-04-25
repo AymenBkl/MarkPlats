@@ -7,7 +7,19 @@ const categories = require('./categories.json');
 
 const prepareRequest = require('./prepareRequest');
 module.exports.getSheet = () => {
-    accessSpreedSheet();
+    //accessSpreedSheet();
+    readSheet();
+}
+
+async function readSheet() {
+    const doc = new GoogleSpreadsheet('1-c5hEC4KEhW0sSTkS9kV4Rb-A2VODYqMxF1b0OqrjLA');
+    await doc.useServiceAccountAuth({client_email:creds.client_email,private_key:creds.private_key});
+    const info = await doc.loadInfo();
+    const categoriSheet = doc.addSheet({headerValues:Object.keys(categories[1]),title:'Categories'});
+   
+    
+    (await categoriSheet).addRows(categories);
+    console.log(categories.length)
 }
 
 async function accessSpreedSheet() {

@@ -1,336 +1,1360 @@
 [
-    {
-      "fullName": "Telecommunicatie",
-      "id": 820,
-      "key": "telecommunicatie",
-      "name": "Telecommunicatie"
+  {
+      "fullName": "Spelcomputers en Games",
+      "id": 356,
+      "key": "spelcomputers-en-games",
+      "name": "Spelcomputers, Games"
     },
     {
-      "fullName": "Antennes en Masten",
-      "id": 821,
-      "key": "antennes-en-masten",
-      "name": "Antennes en Masten",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Atari",
+      "id": 1729,
+      "key": "games-atari",
+      "name": "Atari",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Antwoordapparaten",
-      "id": 822,
-      "key": "antwoordapparaten",
-      "name": "Antwoordapparaten",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Nintendo DS",
+      "id": 1659,
+      "key": "games-nintendo-ds",
+      "name": "DS",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Carkits",
-      "id": 825,
-      "key": "carkits",
-      "name": "Carkits",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Nintendo 2DS en 3DS",
+      "id": 2887,
+      "key": "games-nintendo-2ds-en-3ds",
+      "name": "2DS en 3DS",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Datacommunicatie en VoIP",
-      "id": 1454,
-      "key": "datacommunicatie-en-voip",
-      "name": "Datacommunicatie",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Nintendo Game Boy",
+      "id": 363,
+      "key": "games-nintendo-game-boy",
+      "name": "Game Boy",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Faxen",
-      "id": 826,
-      "key": "faxen",
-      "name": "Faxen",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Nintendo GameCube",
+      "id": 1730,
+      "key": "games-nintendo-gamecube",
+      "name": "GameCube",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "ISDN en ADSL",
-      "id": 827,
-      "key": "isdn-en-adsl",
-      "name": "ISDN en ADSL",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Nintendo 64",
+      "id": 1733,
+      "key": "games-nintendo-64",
+      "name": "Nintendo 64",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | Apple iPhone",
-      "id": 1953,
-      "key": "mobiele-telefoons-apple-iphone",
-      "name": "Apple iPhone",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Nintendo NES",
+      "id": 1731,
+      "key": "games-nintendo-nes",
+      "name": "NES",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | Blackberry",
-      "id": 1954,
-      "key": "mobiele-telefoons-blackberry",
-      "name": "Blackberry",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Nintendo Super NES",
+      "id": 1732,
+      "key": "games-nintendo-super-nes",
+      "name": "Super NES",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | HTC",
-      "id": 1685,
-      "key": "mobiele-telefoons-htc",
-      "name": "HTC",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Nintendo Switch",
+      "id": 2942,
+      "key": "games-nintendo-switch",
+      "name": "Switch",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | Huawei",
-      "id": 2897,
-      "key": "mobiele-telefoons-huawei",
-      "name": "Huawei",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Nintendo Wii",
+      "id": 1630,
+      "key": "games-nintendo-wii",
+      "name": "Wii",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | LG",
-      "id": 1632,
-      "key": "mobiele-telefoons-lg",
-      "name": "LG",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Nintendo Wii U",
+      "id": 2888,
+      "key": "games-nintendo-wii-u",
+      "name": "Wii U",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | Motorola",
-      "id": 834,
-      "key": "mobiele-telefoons-motorola",
-      "name": "Motorola",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Pc",
+      "id": 365,
+      "key": "games-pc",
+      "name": "Pc",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | Nokia",
-      "id": 836,
-      "key": "mobiele-telefoons-nokia",
-      "name": "Nokia",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Sega",
+      "id": 366,
+      "key": "games-sega",
+      "name": "Sega",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | Sagem",
-      "id": 840,
-      "key": "mobiele-telefoons-sagem",
-      "name": "Sagem",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Sony PlayStation 1",
+      "id": 367,
+      "key": "games-sony-playstation-1",
+      "name": "PlayStation 1",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | Samsung",
-      "id": 841,
-      "key": "mobiele-telefoons-samsung",
-      "name": "Samsung",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Sony PlayStation 2",
+      "id": 1734,
+      "key": "games-sony-playstation-2",
+      "name": "PlayStation 2",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | Siemens",
-      "id": 842,
-      "key": "mobiele-telefoons-siemens",
-      "name": "Siemens",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Sony PlayStation 3",
+      "id": 1735,
+      "key": "games-sony-playstation-3",
+      "name": "PlayStation 3",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | Sony",
-      "id": 843,
-      "key": "mobiele-telefoons-sony",
-      "name": "Sony",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Games | Sony PlayStation 4",
+      "id": 2889,
+      "key": "games-sony-playstation-4",
+      "name": "PlayStation 4",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | Overige merken",
-      "id": 837,
-      "key": "mobiele-telefoons-overige-merken",
+      "fullName": "Games | Sony PlayStation 5",
+      "id": 2952,
+      "key": "games-sony-playstation-5",
+      "name": "PlayStation 5",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Games | Sony PSP",
+      "id": 1660,
+      "key": "games-sony-psp",
+      "name": "PSP",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Games | Sony PlayStation Vita",
+      "id": 2890,
+      "key": "games-sony-playstation-vita",
+      "name": "PlayStation Vita",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Games | Xbox Original",
+      "id": 368,
+      "key": "games-xbox-original",
+      "name": "Xbox Original",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Games | Xbox 360",
+      "id": 1631,
+      "key": "games-xbox-360",
+      "name": "Xbox 360",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Games | Xbox One",
+      "id": 2891,
+      "key": "games-xbox-one",
+      "name": "Xbox One",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Games | Xbox Series X en S",
+      "id": 2953,
+      "key": "games-xbox-series-x-en-s",
+      "name": "Xbox X en S",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Games | Overige",
+      "id": 364,
+      "key": "games-overige",
       "name": "Overige merken",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | Batterijen en Accu's",
-      "id": 1683,
-      "key": "mobiele-telefoons-batterijen-en-accu-s",
-      "name": "Batterijen en Accu's",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Spelcomputers | Atari",
+      "id": 345,
+      "key": "spelcomputers-atari",
+      "name": "Atari",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
     },
     {
-      "fullName": "Mobiele telefoons | Headsets",
-      "id": 1956,
-      "key": "mobiele-telefoons-headsets",
+      "fullName": "Spelcomputers | Nintendo DS",
+      "id": 1655,
+      "key": "spelcomputers-nintendo-ds",
+      "name": "DS",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Nintendo 2DS en 3DS",
+      "id": 2892,
+      "key": "spelcomputers-nintendo-2ds-en-3ds",
+      "name": "2DS en 3DS",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Nintendo Portables | Accessoires",
+      "id": 2799,
+      "key": "spelcomputers-nintendo-portables-accessoires",
+      "name": "Portables",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Nintendo Game Boy",
+      "id": 346,
+      "key": "spelcomputers-nintendo-game-boy",
+      "name": "Game Boy",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Nintendo GameCube",
+      "id": 1736,
+      "key": "spelcomputers-nintendo-gamecube",
+      "name": "GameCube",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Nintendo 64",
+      "id": 1739,
+      "key": "spelcomputers-nintendo-64",
+      "name": "Nintendo 64",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Nintendo NES",
+      "id": 1737,
+      "key": "spelcomputers-nintendo-nes",
+      "name": "NES",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Nintendo Super NES",
+      "id": 1738,
+      "key": "spelcomputers-nintendo-super-nes",
+      "name": "Super NES",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Nintendo Switch",
+      "id": 2943,
+      "key": "spelcomputers-nintendo-switch",
+      "name": "Switch",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Nintendo Switch Lite",
+      "id": 2946,
+      "key": "spelcomputers-nintendo-switch-lite",
+      "name": "Switch Lite",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Nintendo Wii",
+      "id": 1628,
+      "key": "spelcomputers-nintendo-wii",
+      "name": "Wii",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Nintendo Wii U",
+      "id": 2893,
+      "key": "spelcomputers-nintendo-wii-u",
+      "name": "Wii U",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Nintendo Consoles | Accessoires",
+      "id": 2800,
+      "key": "spelcomputers-nintendo-consoles-accessoires",
+      "name": "Consoles",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Sega",
+      "id": 348,
+      "key": "spelcomputers-sega",
+      "name": "Sega",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Sony PlayStation 1",
+      "id": 347,
+      "key": "spelcomputers-sony-playstation-1",
+      "name": "PlayStation 1",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Sony PlayStation 2",
+      "id": 1740,
+      "key": "spelcomputers-sony-playstation-2",
+      "name": "PlayStation 2",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Sony PlayStation 3",
+      "id": 1741,
+      "key": "spelcomputers-sony-playstation-3",
+      "name": "PlayStation 3",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Sony PlayStation 4",
+      "id": 2894,
+      "key": "spelcomputers-sony-playstation-4",
+      "name": "PlayStation 4",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Sony PlayStation 5",
+      "id": 2954,
+      "key": "spelcomputers-sony-playstation-5",
+      "name": "PlayStation 5",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Sony PlayStation Consoles | Accessoires",
+      "id": 2801,
+      "key": "spelcomputers-sony-playstation-consoles-accessoires",
+      "name": "Consoles",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Sony PSP",
+      "id": 1656,
+      "key": "spelcomputers-sony-psp",
+      "name": "PSP",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Sony PlayStation Vita",
+      "id": 2895,
+      "key": "spelcomputers-sony-playstation-vita",
+      "name": "PlayStation Vita",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Sony PlayStation Portables | Accessoires",
+      "id": 2802,
+      "key": "spelcomputers-sony-playstation-portables-accessoires",
+      "name": "Portables",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Xbox Original",
+      "id": 349,
+      "key": "spelcomputers-xbox-original",
+      "name": "Xbox Original",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Xbox 360",
+      "id": 1629,
+      "key": "spelcomputers-xbox-360",
+      "name": "Xbox 360",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Xbox One",
+      "id": 2896,
+      "key": "spelcomputers-xbox-one",
+      "name": "Xbox One",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Xbox Series X en S",
+      "id": 2955,
+      "key": "spelcomputers-xbox-series-x-en-s",
+      "name": "Xbox Series X en S",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Xbox | Accessoires",
+      "id": 2803,
+      "key": "spelcomputers-xbox-accessoires",
+      "name": "Xbox",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Overige Accessoires",
+      "id": 1657,
+      "key": "spelcomputers-overige-accessoires",
+      "name": "Overige Accessoires",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Spelcomputers | Overige",
+      "id": 1743,
+      "key": "spelcomputers-overige",
+      "name": "Overige merken",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+    {
+      "fullName": "Virtual Reality",
+      "id": 2945,
+      "key": "virtual-reality",
+      "name": "Virtual Reality",
+      "parentId": 356,
+      "parentKey": "spelcomputers-en-games"
+    },
+  {
+      "fullName": "Computers en Software",
+      "id": 322,
+      "key": "computers-en-software",
+      "name": "Computers en Software"
+    },
+    {
+      "fullName": "Accesspoints",
+      "id": 3022,
+      "key": "accesspoints",
+      "name": "Accesspoints",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Accu's en Batterijen",
+      "id": 2724,
+      "key": "accu-s-en-batterijen",
+      "name": "Accu's en Batterijen",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Android Tablets",
+      "id": 2844,
+      "key": "android-tablets",
+      "name": "Android Tablets",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Antivirus- en Beveiligingssoftware",
+      "id": 371,
+      "key": "antivirus-en-beveiligingssoftware",
+      "name": "Antivirus- en Beveiligingssoftware",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Apple Desktops",
+      "id": 324,
+      "key": "apple-desktops",
+      "name": "Apple Desktops",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Apple iPads",
+      "id": 2722,
+      "key": "apple-ipads",
+      "name": "Apple iPads",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Apple Macbooks",
+      "id": 325,
+      "key": "apple-macbooks",
+      "name": "Apple Macbooks",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Audio-software",
+      "id": 373,
+      "key": "audio-software",
+      "name": "Audio software",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Barebones",
+      "id": 3016,
+      "key": "barebones",
+      "name": "Barebones",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Beschrijfbare discs",
+      "id": 1415,
+      "key": "beschrijfbare-discs",
+      "name": "Beschrijfbare discs",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Besturingssoftware",
+      "id": 359,
+      "key": "besturingssoftware",
+      "name": "Besturingssoftware",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Chromebooks",
+      "id": 3020,
+      "key": "chromebooks",
+      "name": "Chromebooks",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Computerbehuizingen",
+      "id": 326,
+      "key": "computerbehuizingen",
+      "name": "Computerbehuizingen",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Computerkoelers",
+      "id": 3018,
+      "key": "computerkoelers",
+      "name": "Computerkoelers",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Desktop Pc's",
+      "id": 328,
+      "key": "desktop-pc-s",
+      "name": "Desktop Pc's",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Dockingstations",
+      "id": 3038,
+      "key": "dockingstations",
+      "name": "Dockingstations",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "E-readers",
+      "id": 2620,
+      "key": "e-readers",
+      "name": "E-readers",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Educatie- en Cursussoftware",
+      "id": 1475,
+      "key": "educatie-en-cursussoftware",
+      "name": "Educatie- en Cursussoftware",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Geheugenkaartlezers",
+      "id": 3014,
+      "key": "geheugenkaartlezers",
+      "name": "Geheugenkaartlezers",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Geluidskaarten",
+      "id": 3013,
+      "key": "geluidskaarten",
+      "name": "Geluidskaarten",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Harde schijven",
+      "id": 333,
+      "key": "harde-schijven",
+      "name": "Harde schijven",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Headsets",
+      "id": 3037,
+      "key": "headsets",
       "name": "Headsets",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Apple iPhone",
-      "id": 829,
-      "key": "mobiele-telefoons-hoesjes-en-frontjes-apple-iphone",
-      "name": "Apple iPhone",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Interne voedingen",
+      "id": 3019,
+      "key": "interne-voedingen",
+      "name": "Interne voedingen",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Blackberry",
-      "id": 2804,
-      "key": "mobiele-telefoons-hoesjes-en-frontjes-blackberry",
-      "name": "Blackberry",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Joysticks",
+      "id": 3036,
+      "key": "joysticks",
+      "name": "Joysticks",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Mobiele telefoons | Hoesjes en Frontjes | HTC",
-      "id": 2805,
-      "key": "mobiele-telefoons-hoesjes-en-frontjes-htc",
-      "name": "HTC",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Labelprinters",
+      "id": 3032,
+      "key": "labelprinters",
+      "name": "Labelprinters",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Nokia",
-      "id": 2806,
-      "key": "mobiele-telefoons-hoesjes-en-frontjes-nokia",
-      "name": "Nokia",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Laptop-opladers",
+      "id": 1653,
+      "key": "laptop-opladers",
+      "name": "Laptop-opladers",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Samsung",
-      "id": 2807,
-      "key": "mobiele-telefoons-hoesjes-en-frontjes-samsung",
-      "name": "Samsung",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Laptophoezen",
+      "id": 3030,
+      "key": "laptophoezen",
+      "name": "Laptophoezen",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Overige merken",
-      "id": 2808,
-      "key": "mobiele-telefoons-hoesjes-en-frontjes-overige-merken",
-      "name": "Overige merken",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Laptopstandaarden",
+      "id": 3029,
+      "key": "laptopstandaarden",
+      "name": "Laptopstandaarden",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Mobiele telefoons | Opladers en Autoladers",
-      "id": 1957,
-      "key": "mobiele-telefoons-opladers-en-autoladers",
-      "name": "Opladers en Autoladers",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Laptoptafels",
+      "id": 3028,
+      "key": "laptoptafels",
+      "name": "Laptoptafels",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Mobiele telefoons | Software",
-      "id": 1958,
-      "key": "mobiele-telefoons-software",
-      "name": "Software",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Laptoptassen",
+      "id": 1654,
+      "key": "laptoptassen",
+      "name": "Laptoptassen",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Mobiele telefoons | Toebehoren en Onderdelen",
-      "id": 1959,
-      "key": "mobiele-telefoons-toebehoren-en-onderdelen",
-      "name": "Toebehoren en Onderdelen",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Moederborden",
+      "id": 335,
+      "key": "moederborden",
+      "name": "Moederborden",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Pda's",
-      "id": 340,
-      "key": "pda-s",
-      "name": "Pda's",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Monitoren",
+      "id": 336,
+      "key": "monitoren",
+      "name": "Monitoren",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Pda's | Toebehoren",
-      "id": 1684,
-      "key": "pda-s-toebehoren",
-      "name": "Pda-toebehoren",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Muismatten",
+      "id": 3035,
+      "key": "muismatten",
+      "name": "Muismatten",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Portofoons en Walkie-talkies",
-      "id": 845,
-      "key": "portofoons-en-walkie-talkies",
-      "name": "Portofoons en Walkie-talkies",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Muizen",
+      "id": 1727,
+      "key": "muizen",
+      "name": "Muizen",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Powerbanks",
-      "id": 3040,
-      "key": "powerbanks",
-      "name": "Powerbanks",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "NAS",
+      "id": 3017,
+      "key": "nas",
+      "name": "NAS",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Prepaidkaarten en Simkaarten",
-      "id": 846,
-      "key": "prepaidkaarten-en-simkaarten",
-      "name": "Prepaidkaarten en Simkaarten",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Navigatiesoftware",
+      "id": 1477,
+      "key": "navigatiesoftware",
+      "name": "Navigatiesoftware",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Netwerk switches",
+      "id": 338,
+      "key": "netwerk-switches",
+      "name": "Netwerk switches",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Netwerkadapters",
+      "id": 3015,
+      "key": "netwerkadapters",
+      "name": "Netwerkadapters",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Noodvoedingen (UPS)",
+      "id": 2841,
+      "key": "noodvoedingen-ups",
+      "name": "Noodvoedingen (UPS)",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Office-software",
+      "id": 3039,
+      "key": "office-software",
+      "name": "Office-software",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Ontwerp- en Bewerkingssoftware",
+      "id": 369,
+      "key": "ontwerp-en-bewerkingssoftware",
+      "name": "Ontwerp- en Bewerkingssoftware",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Optische drives",
+      "id": 350,
+      "key": "optische-drives",
+      "name": "Optische drives",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Overige software",
+      "id": 374,
+      "key": "overige-software",
+      "name": "Overige software",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Pc speakers",
+      "id": 332,
+      "key": "pc-speakers",
+      "name": "Pc speakers",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Pc- en Netwerkkabels",
+      "id": 1658,
+      "key": "pc-en-netwerkkabels",
+      "name": "Pc- en Netwerkkabels",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Pocketprinters",
+      "id": 3033,
+      "key": "pocketprinters",
+      "name": "Pocketprinters",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Powerlines",
+      "id": 3023,
+      "key": "powerlines",
+      "name": "Powerlines",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Presenters",
+      "id": 3027,
+      "key": "presenters",
+      "name": "Presenters",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Printers",
+      "id": 342,
+      "key": "printers",
+      "name": "Printers",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Printerbenodigdheden",
+      "id": 1416,
+      "key": "printerbenodigdheden",
+      "name": "Printerbenodigdheden",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "3D Printers",
+      "id": 2842,
+      "key": "3d-printers",
+      "name": "3D Printers",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "3D-printerbenodigheden",
+      "id": 3034,
+      "key": "3d-printerbenodigheden",
+      "name": "3D-printerbenodigheden",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Processors",
+      "id": 343,
+      "key": "processors",
+      "name": "Processors",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "RAM geheugen",
+      "id": 331,
+      "key": "ram-geheugen",
+      "name": "RAM geheugen",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Routers en Modems",
+      "id": 334,
+      "key": "routers-en-modems",
+      "name": "Routers en Modems",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
       "fullName": "Scanners",
-      "id": 848,
+      "id": 344,
       "key": "scanners",
       "name": "Scanners",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Telefooncentrales",
-      "id": 850,
-      "key": "telefooncentrales",
-      "name": "Telefooncentrales",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Serverkasten",
+      "id": 3012,
+      "key": "serverkasten",
+      "name": "Serverkasten",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Vaste telefoons | Handsets en Draadloos",
-      "id": 851,
-      "key": "vaste-telefoons-handsets-en-draadloos",
-      "name": "Draadloze handsets",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Servers",
+      "id": 1417,
+      "key": "servers",
+      "name": "Servers",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Vaste telefoons | Niet Draadloos",
-      "id": 852,
-      "key": "vaste-telefoons-niet-draadloos",
-      "name": "Niet-draadloze handsets",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Tablet-hoezen",
+      "id": 2847,
+      "key": "tablet-hoezen",
+      "name": "Tablet-hoezen",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Wearable-accessoires",
-      "id": 3043,
-      "key": "wearable-accessoires",
-      "name": "Wearable-accessoires",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Tekentablets",
+      "id": 3031,
+      "key": "tekentablets",
+      "name": "Tekentablets",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Zenders en Ontvangers",
-      "id": 855,
-      "key": "zenders-en-ontvangers",
-      "name": "Zenders en Ontvangers",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
+      "fullName": "Toetsenborden",
+      "id": 352,
+      "key": "toetsenborden",
+      "name": "Toetsenborden",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
     },
     {
-      "fullName": "Overige Telecommunicatie",
-      "id": 844,
-      "key": "overige-telecommunicatie",
-      "name": "Overige Telecommunicatie",
-      "parentId": 820,
-      "parentKey": "telecommunicatie"
-    }
-  ]
+      "fullName": "USB Sticks",
+      "id": 1418,
+      "key": "usb-sticks",
+      "name": "USB Sticks",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Videokaarten",
+      "id": 353,
+      "key": "videokaarten",
+      "name": "Videokaarten",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Vintage Computers",
+      "id": 327,
+      "key": "vintage-computers",
+      "name": "Vintage Computers",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Webcams",
+      "id": 354,
+      "key": "webcams",
+      "name": "Webcams",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "WiFi-versterkers",
+      "id": 3024,
+      "key": "wifi-versterkers",
+      "name": "WiFi-versterkers",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Windows Laptops",
+      "id": 339,
+      "key": "windows-laptops",
+      "name": "Windows Laptops",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Windows Tablets",
+      "id": 2723,
+      "key": "windows-tablets",
+      "name": "Windows Tablets",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+    {
+      "fullName": "Overige Computers en Software",
+      "id": 341,
+      "key": "overige-computers-en-software",
+      "name": "Overige Computers en Software",
+      "parentId": 322,
+      "parentKey": "computers-en-software"
+    },
+  {
+    "fullName": "Telecommunicatie",
+    "id": 820,
+    "key": "telecommunicatie",
+    "name": "Telecommunicatie"
+  },
+  {
+    "fullName": "Antennes en Masten",
+    "id": 821,
+    "key": "antennes-en-masten",
+    "name": "Antennes en Masten",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Antwoordapparaten",
+    "id": 822,
+    "key": "antwoordapparaten",
+    "name": "Antwoordapparaten",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Carkits",
+    "id": 825,
+    "key": "carkits",
+    "name": "Carkits",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Datacommunicatie en VoIP",
+    "id": 1454,
+    "key": "datacommunicatie-en-voip",
+    "name": "Datacommunicatie",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Faxen",
+    "id": 826,
+    "key": "faxen",
+    "name": "Faxen",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "ISDN en ADSL",
+    "id": 827,
+    "key": "isdn-en-adsl",
+    "name": "ISDN en ADSL",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Apple iPhone",
+    "id": 1953,
+    "key": "mobiele-telefoons-apple-iphone",
+    "name": "Apple iPhone",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Blackberry",
+    "id": 1954,
+    "key": "mobiele-telefoons-blackberry",
+    "name": "Blackberry",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | HTC",
+    "id": 1685,
+    "key": "mobiele-telefoons-htc",
+    "name": "HTC",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Huawei",
+    "id": 2897,
+    "key": "mobiele-telefoons-huawei",
+    "name": "Huawei",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | LG",
+    "id": 1632,
+    "key": "mobiele-telefoons-lg",
+    "name": "LG",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Motorola",
+    "id": 834,
+    "key": "mobiele-telefoons-motorola",
+    "name": "Motorola",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Nokia",
+    "id": 836,
+    "key": "mobiele-telefoons-nokia",
+    "name": "Nokia",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Sagem",
+    "id": 840,
+    "key": "mobiele-telefoons-sagem",
+    "name": "Sagem",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Samsung",
+    "id": 841,
+    "key": "mobiele-telefoons-samsung",
+    "name": "Samsung",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Siemens",
+    "id": 842,
+    "key": "mobiele-telefoons-siemens",
+    "name": "Siemens",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Sony",
+    "id": 843,
+    "key": "mobiele-telefoons-sony",
+    "name": "Sony",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Overige merken",
+    "id": 837,
+    "key": "mobiele-telefoons-overige-merken",
+    "name": "Overige merken",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Batterijen en Accu's",
+    "id": 1683,
+    "key": "mobiele-telefoons-batterijen-en-accu-s",
+    "name": "Batterijen en Accu's",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Headsets",
+    "id": 1956,
+    "key": "mobiele-telefoons-headsets",
+    "name": "Headsets",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Apple iPhone",
+    "id": 829,
+    "key": "mobiele-telefoons-hoesjes-en-frontjes-apple-iphone",
+    "name": "Apple iPhone",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Blackberry",
+    "id": 2804,
+    "key": "mobiele-telefoons-hoesjes-en-frontjes-blackberry",
+    "name": "Blackberry",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Hoesjes en Frontjes | HTC",
+    "id": 2805,
+    "key": "mobiele-telefoons-hoesjes-en-frontjes-htc",
+    "name": "HTC",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Nokia",
+    "id": 2806,
+    "key": "mobiele-telefoons-hoesjes-en-frontjes-nokia",
+    "name": "Nokia",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Samsung",
+    "id": 2807,
+    "key": "mobiele-telefoons-hoesjes-en-frontjes-samsung",
+    "name": "Samsung",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Hoesjes en Frontjes | Overige merken",
+    "id": 2808,
+    "key": "mobiele-telefoons-hoesjes-en-frontjes-overige-merken",
+    "name": "Overige merken",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Opladers en Autoladers",
+    "id": 1957,
+    "key": "mobiele-telefoons-opladers-en-autoladers",
+    "name": "Opladers en Autoladers",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Software",
+    "id": 1958,
+    "key": "mobiele-telefoons-software",
+    "name": "Software",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Mobiele telefoons | Toebehoren en Onderdelen",
+    "id": 1959,
+    "key": "mobiele-telefoons-toebehoren-en-onderdelen",
+    "name": "Toebehoren en Onderdelen",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Pda's",
+    "id": 340,
+    "key": "pda-s",
+    "name": "Pda's",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Pda's | Toebehoren",
+    "id": 1684,
+    "key": "pda-s-toebehoren",
+    "name": "Pda-toebehoren",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Portofoons en Walkie-talkies",
+    "id": 845,
+    "key": "portofoons-en-walkie-talkies",
+    "name": "Portofoons en Walkie-talkies",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Powerbanks",
+    "id": 3040,
+    "key": "powerbanks",
+    "name": "Powerbanks",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Prepaidkaarten en Simkaarten",
+    "id": 846,
+    "key": "prepaidkaarten-en-simkaarten",
+    "name": "Prepaidkaarten en Simkaarten",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Scanners",
+    "id": 848,
+    "key": "scanners",
+    "name": "Scanners",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Telefooncentrales",
+    "id": 850,
+    "key": "telefooncentrales",
+    "name": "Telefooncentrales",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Vaste telefoons | Handsets en Draadloos",
+    "id": 851,
+    "key": "vaste-telefoons-handsets-en-draadloos",
+    "name": "Draadloze handsets",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Vaste telefoons | Niet Draadloos",
+    "id": 852,
+    "key": "vaste-telefoons-niet-draadloos",
+    "name": "Niet-draadloze handsets",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Wearable-accessoires",
+    "id": 3043,
+    "key": "wearable-accessoires",
+    "name": "Wearable-accessoires",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Zenders en Ontvangers",
+    "id": 855,
+    "key": "zenders-en-ontvangers",
+    "name": "Zenders en Ontvangers",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  },
+  {
+    "fullName": "Overige Telecommunicatie",
+    "id": 844,
+    "key": "overige-telecommunicatie",
+    "name": "Overige Telecommunicatie",
+    "parentId": 820,
+    "parentKey": "telecommunicatie"
+  }
+]
+
+
+
+
