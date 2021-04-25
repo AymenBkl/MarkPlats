@@ -9,14 +9,12 @@ var logger = require('morgan');
 var app = express();
 
 const markPlatsRouter = require('./Routes/markPlats.route');
-const cors = require('./Middlewares/cors');
 const httpsRedirect = require('./Middlewares/https.redirect');
-const limiter = require('./Middlewares/ddos.limiter');
 const mongoose = require('./Middlewares/mongoose');
+const cors = require('./Middlewares/cors');
 
 
 // view engine setup
-app.use('/api',express.static(path.join(__dirname, '/public')));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -24,7 +22,6 @@ app.use(cookieParser('aymenxyzbkl12345678910'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(httpsRedirect);
 app.use(cors.corsWithOptions);
-app.use(limiter.limiter);
 
 app.use('/markplats',markPlatsRouter);
 
