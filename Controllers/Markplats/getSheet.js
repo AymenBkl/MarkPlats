@@ -60,10 +60,22 @@ async function getUniqueModels(modelsRows){
     return modelsMap;
 }
 
+function searchCategory(reburiekModel) {
+    rebriekToSearch = reburiekModel.split('_')[0];
+    return(categories.filter(category => category.fullName.includes(rebriekToSearch)));
+}
+
 async function constructQuery(product,modelMap,user) {
-    let queryString = 'limit=100&offset=0&sortBy=PRICE&viewOptions=list-view&searchInTitleAndDescription=true&sortOrder=DECREASING&l1CategoryId=820&l2CategoryId=841';
+    let queryString = 'limit=100&offset=0&sortBy=PRICE&viewOptions=list-view&searchInTitleAndDescription=true&sortOrder=DECREASING';
     queryString += '&postcode=' + user.Postal; 
     if (product.Rubric && product.Rubric != null){
+        const category = searchCategory(product.Rubric);
+        if (category && category.length > 0){
+            queryString += '&l1CategoryId='+ category[0].parentId +'&l2CategoryId='+category[0].id;
+        }
+        else {
+            queryString += '&l1CategoryId=820';
+        }
         queryString += await buildModelsQuery(modelMap.get(product.Rubric));
     }
     if (product['Maximum Distance'] && product['Maximum Distance'] != null){
@@ -112,14 +124,23 @@ async function constructQuery(product,modelMap,user) {
             queryString += '&attributesById[]=' + 12820;
         }
     }
-    console.log(queryString);
     prepareRequest.prepareRequest(queryString)
         .then((result) => {
-            console.log(result);
+            if (result && result.status && result.body){
+                console.log(queryString);
+                getAllPrices(result.body.listings);
+            }
         })
         .catch(err => {
             console.log(err);
         })
+}
+
+function getAllPrices(listings){
+    console.log('new');
+    listings.map(listing => {
+        console.log(listing.priceInfo.priceCents / 100,listing.title)
+    })
 }
 
 async function buildModelsQuery(set) {
