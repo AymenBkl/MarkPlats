@@ -9,26 +9,37 @@ const sendEmail = require('./sendEmail');
 
 let docs = new Map();
 const prepareRequest = require('./prepareRequest');
-module.exports.getSheet = async (link) => {
-    const promise = await accessSpreedSheet(link);
+module.exports.getSheet = async (link,index) => {
+    const promise = await accessSpreedSheet(link,index);
 }
 
-module.exports.prepareAuth = (store) => {
+module.exports.prepareAuth = (store,index) => {
     return new Promise(async (resolve) => {
-        let link = store.link;
-            docs.set(link, new GoogleSpreadsheet(link));
-            await docs.get(link).useServiceAccountAuth({ client_email: creds.client_email, private_key: creds.private_key });
-            await docs.get(link).loadInfo();
-            console.log('authed');
-            resolve(true);
+        console.log(store.link);
+            let link = store.link;
+            try {
+                console.log(link);
+                docs.set(link, new GoogleSpreadsheet(link));
+                console.log(docs.get(link));
+                await docs.get(link).useServiceAccountAuth({ client_email: creds.client_email, private_key: creds.private_key });
+                await docs.get(link).loadInfo();
+                console.log('authed');
+                resolve(index+1);
+            }
+            catch (err) {
+                resolve(index+1);
+
+            }
+            
 
     })
 }
 
 
 
-async function accessSpreedSheet(link) {
+async function accessSpreedSheet(link,index) {
     return new Promise(async (resolve) => {
+        console.log(link);
         const doc = docs.get(link);
         const sheetProduct = doc.sheetsByIndex[0];
         const sheetModels = doc.sheetsByIndex[4];
@@ -41,7 +52,7 @@ async function accessSpreedSheet(link) {
             for(let j=0;j<9;j++)
             console.log(sheet.getCell(i,j).formula,sheet.getCell(i,j).value);
         }**/
-        resolve(true);
+        resolve(true,index+1);
     })
     
 }
@@ -190,24 +201,25 @@ async function nextPage(page,queryString,user,link) {
 
 function getAllDetials(listings,user,link) {
     return new Promise(async (resolve) => {
-        const promises =listings.map(async  listing => {
-            console.log(link);
-            return await proccess(listing,user,link);
-        });
-        const promisesDone = Promise.all(promises);
+        const listngsLenght = listings.length;
+        let index = 0;
+        while (index < listngsLenght){
+            console.log(index);
+            index = await proccess(listings[index],user,link,index)
+        }
         resolve(true);
     })
     
 }
 
-async function proccess(listing,user,link) {
+async function proccess(listing,user,link,index) {
     return new Promise(async (resolve) => {
-        sendEmail.sendEmail(link,user['E-mail'],listing.itemId,listing.priceInfo.priceCents,listing.vipUrl,listing.title)
+        sendEmail.sendEmail(link,user['E-mail'],listing.itemId,listing.priceInfo.priceCents / 100,listing.vipUrl,listing.title)
             .then((result) => {
-                resolve(true);
+                resolve(index+1);
             })
             .catch(err => {
-                resolve(true);
+                resolve(index+1);
             })
     })
 }

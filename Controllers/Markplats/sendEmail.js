@@ -10,8 +10,13 @@ module.exports.sendEmail = async (link,email,itemId,price,url,title) => {
                 resolve({status:false,msg:'item exist'});
             }
             else {
-                resolve(await (createNotification(link,itemId,email)));
-                //resolve(await sendEmail(link,price,url,itemId,email,title));
+                sendEmail(link,price,url,itemId,email,title)
+                    .then((result) => {
+                        resolve(result);
+                    })
+                    .catch(err => {
+                        resolve({status:false,msg:'couldnt send message'})
+                    })
             }
         })
         .catch(err => {
@@ -42,22 +47,23 @@ async function createNotification(link,itemId,email) {
 
 async function sendEmail(link,price,url,itemId,email,title) {
     return new Promise((resolve,reject) => {
-        sendEmailNodeMailer.sendEmail('aymenxyz6@gmail.com','Hello We sent you this email from our api to tell you have found new offer for you.Title:  ' + title +' URL: https://www.marktplaats.nl/'+url+', itemId: ' +itemId + ',price: ' +price)
-        .then(async (result) => {
-            if (result && result.status) {
-                setTimeout(async () => {
-                    resolve(await createNotification(link,itemId,email));
-                },2000)
-            }
-            else {
+        setTimeout(async () => {
+            sendEmailNodeMailer.sendEmail(email,price,'https://www.marktplaats.nl'+url,title,itemId)
+            .then(async (result) => {
+                if (result && result.status) {
+                        resolve(await createNotification(link,itemId,email));
+                }
+                else {
+                    resolve({status:false,msg:"message not send"});
+                }
+            })
+            .catch((err) => {
                 resolve({status:false,msg:"message not send"});
-            }
+    
+            })
+        },1000);
         })
-        .catch((err) => {
-            resolve({status:false,msg:"message not send"});
-
-        })
-    })
+       
     
 
 }

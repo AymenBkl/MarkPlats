@@ -2,6 +2,10 @@ const storeModel = require('../../Models/store');
 
 const getSheet = require('./getSheet');
 module.exports.getLinks = (res,type) => {
+    getLinksLocal(res,type);
+}
+
+async function getLinksLocal(res,type){
     if (type == 'api'){
         storeModel.find({}) 
         .then((links) => {
@@ -25,11 +29,11 @@ module.exports.getLinks = (res,type) => {
         })
     }
     else if (type == 'sheet'){
-        console.log(Date.now());
         storeModel.find({expiration : {$gt:Date.now()}}) 
         .then((links) => {
+            console.log(links);
             if (links && links.length > 0){
-                getSheets(links);
+                getSheets(links,res,type);
                 
             }
         })
@@ -38,21 +42,22 @@ module.exports.getLinks = (res,type) => {
             
         })
     }
-    
 }
 
 
-async function getSheets(sheets){
-    const promisesAuth = sheets.map(async sheet => {
-        const promise = await getSheet.prepareAuth(sheet);
-        return promise;
-    });
-    const allPromisesAuth = await Promise.all(promisesAuth);
+async function getSheets(sheets,res,type){
+    let index = 0;
+    let sheetLength = sheets.length;
+    while (index < sheetLength){
+        index = await getSheet.prepareAuth(sheets[index],index);
+    }
     console.log('finished Auth');
-    const promisesWork = sheets.map(async sheet => {
-        const promise = await getSheet.getSheet(sheet.link);
-        return promise;
-    });
-    const allPromisesWork = await Promise.all(promisesWork);
+    index = 0;
+    while (index < sheetLength){
+        index = await getSheet.getSheet(sheets[index].link,index);
+    }
     console.log('finished');
+    setTimeout(async () => {
+        getLinksLocal(res,type);
+    },60000)
 }
