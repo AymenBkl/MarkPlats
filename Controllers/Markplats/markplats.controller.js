@@ -14,7 +14,7 @@ module.exports = {
     },
 
     addLink : (req,res,next) => {
-        createLink.addLink(res,req.body.link);
+        createLink.addLink(res,req.body.link,req.body.name);
     },
     
     getLinks: (req,res,next) => {

@@ -12,6 +12,10 @@ const storeSchema = new Schema({
         unique: true,
         index: true
     },
+    storeName:{
+        type:String,
+        required:true
+    },
     expiration:{
         type: Date, 
         default: Date.now() 

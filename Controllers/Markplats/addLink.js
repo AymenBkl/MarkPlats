@@ -1,7 +1,7 @@
 const storeModel = require('../../Models/store');
 
-module.exports.addLink = (res,link) => {
-    storeModel.create({link:link})
+module.exports.addLink = (res,link,storeName) => {
+    storeModel.create({link:link,storeName:storeName})
         .then((linkCreated) => {
             if (linkCreated){
                 res.json({status:200,msg:"LINK CREATED",link:linkCreated});
