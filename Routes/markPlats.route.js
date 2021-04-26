@@ -15,6 +15,8 @@ router.all('/', function(req, res, next) {
 
 .put('/deletelink',cors.corsWithOptions, markplats.deleteLink)
 
+.put('/updatexpiration',cors.corsWithOptions, markplats.updateLink)
+
 .post('/addlink',cors.corsWithOptions, markplats.addLink);
 
 

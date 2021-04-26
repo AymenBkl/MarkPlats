@@ -5,9 +5,19 @@ const creds = require('./Markplats-00ab3a6d201e.json');
 
 const categories = require('./categories.json');
 
+let docs = new Map();
 const prepareRequest = require('./prepareRequest');
 module.exports.getSheet = () => {
     accessSpreedSheet();
+}
+
+module.exports.prepareAuth = (stores) => {
+    stores.map(async store => {
+        let link = store.link;
+        docs.set(link,new GoogleSpreadsheet(link));
+        await docs.get(link).useServiceAccountAuth({client_email:creds.client_email,private_key:creds.private_key});
+        await docs.get(link).doc.loadInfo();
+    })
 }
 
 

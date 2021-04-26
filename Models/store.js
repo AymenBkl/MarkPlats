@@ -13,6 +13,10 @@ const storeSchema = new Schema({
         unique: true,
         index: true
     },
+    expiration:{
+        type: Date, 
+        default: Date.now() 
+    }
 }, {
     timestamps: true
 })

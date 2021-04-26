@@ -5,9 +5,12 @@ const createLink = require('./addLink');
 const getLinks = require('./getLinks');
 
 const deleteLink = require('./deleteLink');
+
+const updateStore = require('./updateLink');
+
 module.exports = {
     getSheet : (req,res,next) => {
-        getSheet.getSheet();
+        getLinks.getLinks(res,'sheet');
     },
 
     addLink : (req,res,next) => {
@@ -20,5 +23,15 @@ module.exports = {
 
     deleteLink: (req,res,next) => {
         deleteLink.deleteLink(res,req.body.link)
+    },
+
+    updateLink : (req,res,next) => {
+        const query = {
+            $set: {
+                expiration: req.body.date,
+
+            }
+        }
+        updateStore.updateStore(res,req.body.storeId,query);
     }
 }
