@@ -7,37 +7,43 @@ const categories = require('./categories.json');
 
 let docs = new Map();
 const prepareRequest = require('./prepareRequest');
-module.exports.getSheet = () => {
-    accessSpreedSheet();
+module.exports.getSheet = (link) => {
+    accessSpreedSheet(link);
 }
 
-module.exports.prepareAuth = (stores) => {
-    stores.map(async store => {
+module.exports.prepareAuth = (store) => {
+    return new Promise(async (resolve) => {
         let link = store.link;
-        docs.set(link,new GoogleSpreadsheet(link));
-        await docs.get(link).useServiceAccountAuth({client_email:creds.client_email,private_key:creds.private_key});
-        await docs.get(link).doc.loadInfo();
+        setTimeout(async () => {
+            docs.set(link, new GoogleSpreadsheet(link));
+            await docs.get(link).useServiceAccountAuth({ client_email: creds.client_email, private_key: creds.private_key });
+            await docs.get(link).loadInfo();
+            console.log('authed');
+            resolve(true);
+
+        },1500)
     })
 }
 
 
 
-async function accessSpreedSheet() {
-    const doc = new GoogleSpreadsheet('1-c5hEC4KEhW0sSTkS9kV4Rb-A2VODYqMxF1b0OqrjLA');
-    await doc.useServiceAccountAuth({client_email:creds.client_email,private_key:creds.private_key});
-    const info = await doc.loadInfo();
-    console.log("info loaded");
-    const sheetProduct = doc.sheetsByIndex[0];
-    const sheetModels = doc.sheetsByIndex[4];
-    const sheetUser = doc.sheetsByIndex[2];
-    let productModels = await getUniqueModels(sheetModels);
-    getProducts(sheetProduct,productModels,await getUser(sheetUser));
-    /**await sheet.loadCells('A1:I50');
-    const a1 =  sheet.getCell(0,1);
-    for(let i=0;i<50;i++){
-        for(let j=0;j<9;j++)
-        console.log(sheet.getCell(i,j).formula,sheet.getCell(i,j).value);
-    }**/
+async function accessSpreedSheet(link) {
+    return new Promise(async (resolve) => {
+        const doc = docs.get(link);
+        const sheetProduct = doc.sheetsByIndex[0];
+        const sheetModels = doc.sheetsByIndex[4];
+        const sheetUser = doc.sheetsByIndex[2];
+        let productModels = await getUniqueModels(sheetModels);
+        await getProducts(sheetProduct, productModels, await getUser(sheetUser));
+        /**await sheet.loadCells('A1:I50');
+        const a1 =  sheet.getCell(0,1);
+        for(let i=0;i<50;i++){
+            for(let j=0;j<9;j++)
+            console.log(sheet.getCell(i,j).formula,sheet.getCell(i,j).value);
+        }**/
+        resolve(true);
+    })
+    
 }
 
 async function getUser(sheetUser) {
@@ -46,62 +52,69 @@ async function getUser(sheetUser) {
 
 }
 
-async function getProducts(sheetProduct,modelRows,user) {
-    const rows = await sheetProduct.getRows();
-    let index = 0;
-    let keys = ['On / Off','Group','Rubric','Type','Storage','Condition Product','Maximum Price','Maximum Distance','Seller Active Since'];
+async function getProducts(sheetProduct, modelRows, user) {
+    return new Promise(async (resolve) => {
+        const rows = await sheetProduct.getRows();
+        let index = 0;
+        let keys = ['On / Off', 'Group', 'Rubric', 'Type', 'Storage', 'Condition Product', 'Maximum Price', 'Maximum Distance', 'Seller Active Since'];
+    
+        while (index < rows.length) {
+            console.log(index);
+            index = await constructQuery(rows[index], modelRows, user, index);
+        }
+        console.log('finished from while');
+        resolve(true);
+    })
+    
+}
 
-    while (index < rows.length) {
-        console.log(index);
-        index = await constructQuery(rows[index],modelRows,user,index);
-    }
-}   
-
-async function getUniqueModels(modelsRows){
+async function getUniqueModels(modelsRows) {
     let modelsMap = new Map();
     const rowCounts = (await modelsRows.getRows()).length;
-    console.log(rowCounts,modelsRows.columnCount);
+    console.log(rowCounts, modelsRows.columnCount);
     await modelsRows.loadCells(`A1:ZZ${rowCounts}`);
-    for(let i=1;i<rowCounts;i++){
+    for (let i = 1; i < rowCounts; i++) {
         let modelsSet = new Set();
-        for(let j=1;j<modelsRows.columnCount;j++){
-            modelsSet.add(await modelsRows.getCell(i,j).value);
+        for (let j = 1; j < modelsRows.columnCount; j++) {
+            modelsSet.add(await modelsRows.getCell(i, j).value);
         }
-        modelsMap.set(modelsRows.getCell(i,0).value,modelsSet);
+        modelsMap.set(modelsRows.getCell(i, 0).value, modelsSet);
     }
     return modelsMap;
 }
 
 function searchCategory(reburiekModel) {
     rebriekToSearch = reburiekModel.split('_')[0];
-    return(categories.filter(category => category.fullName.includes(rebriekToSearch)));
+    return (categories.filter(category => category.fullName.includes(rebriekToSearch)));
 }
 
-async function constructQuery(product,modelMap,user,i) {
-    return new Promise(async (resolve,reject) => {
+async function constructQuery(product, modelMap, user, i) {
+    return new Promise(async (resolve, reject) => {
         let queryString = 'limit=100&offset=0&sortBy=PRICE&viewOptions=list-view&searchInTitleAndDescription=true&sortOrder=DECREASING';
-        queryString += '&postcode=' + user.Postal; 
-        if (product.Rubric && product.Rubric != null){
-            queryString += await buildModelsQuery(modelMap.get(product.Rubric));
+        queryString += '&postcode=' + user.Postal;
+        let buildedModelsQuery = {valid:false,queryString:''};
+        if (product.Rubric && product.Rubric != null) {
+            buildedModelsQuery = await (await buildModelsQuery(modelMap.get(product.Rubric)))
+            queryString += buildedModelsQuery.string;
         }
-        if (product['Maximum Distance'] && product['Maximum Distance'] != null){
-            queryString += '&distanceMeters=' +product['Maximum Distance']*1000;
+        if (product['Maximum Distance'] && product['Maximum Distance'] != null) {
+            queryString += '&distanceMeters=' + product['Maximum Distance'] * 1000;
         }
-        if (product['Maximum Price'] && product['Maximum Price'] != null){
-            queryString += '&attributeRanges[]=PriceCents%3A100%3A'+product['Maximum Price']*100;
+        if (product['Maximum Price'] && product['Maximum Price'] != null) {
+            queryString += '&attributeRanges[]=PriceCents%3A100%3A' + product['Maximum Price'] * 100;
         }
         if (product['Condition Product'] && product['Condition Product'] != null) {
-            if (product['Condition Product'] == 'New'){
+            if (product['Condition Product'] == 'New') {
                 queryString += '&attributesById[]=' + 30;
             }
-            else if (product['Condition Product'] == 'Used'){
+            else if (product['Condition Product'] == 'Used') {
                 queryString += '&attributesById[]=' + 32;
             }
-            else if (product['Condition Product'] == 'As good as new'){
+            else if (product['Condition Product'] == 'As good as new') {
                 queryString += '&attributesById[]=' + 31;
             }
             else {
-                queryString += '&attributesById[]=' + 31 + '&attributesById[]=' + 32 + '&attributesById[]=' + 30 ;
+                queryString += '&attributesById[]=' + 31 + '&attributesById[]=' + 32 + '&attributesById[]=' + 30;
             }
         }
         if (product['Storage'] && product['Storage'] != null) {
@@ -130,45 +143,86 @@ async function constructQuery(product,modelMap,user,i) {
                 queryString += '&attributesById[]=' + 12820;
             }
         }
-        console.log('entered',i,queryString + '\n');
+        console.log('entered', i, queryString + '\n');
+        if (buildedModelsQuery.valid){
+            await nextPage(0,queryString);
+            resolve(i+1);
+        }
+    })
+
+}
+
+async function nextPage(page,queryString) {
+    return new Promise(async (resolve) => {
         prepareRequest.prepareRequest(queryString)
-            .then((result) => {
+        .then(async (result) => {
+            setTimeout(async () => {
                 console.log(result)
-                if (result && result.status && result.body){
-                    console.log(queryString);
-                    getAllPrices(result.body.listings);
+                if (result && result.status && result.body) {
+                    await getAllDetials(result.body.listings);
+                    console.log(result.body.listings[0]);
+                    if (result.body.length == 100){
+                        queryString.replace('offset=' + page,'offset=' + Number(page+1));
+                        console.log(queryString);
+                        await nextPage(page+1,queryString);
+                    }
+                    else {
+                        resolve(true);
+                    }
                 }
-                resolve(i+1);
-            })
-            .catch(err => {
+                else {
+                    resolve(true);
+                }
+            },1000)
+            
+        })
+        .catch(err => {
+            setTimeout(() => {
                 console.log(err);
-                resolve(i+1)
-            })
+                resolve(true);
+            },1000)
+            
+        })
     })
     
 }
 
-function getAllPrices(listings){
-    console.log('new');
-    listings.map(listing => {
-        console.log(listing.priceInfo.priceCents / 100,listing.title)
+function getAllDetials(listings) {
+    return new Promise(async (resolve) => {
+        const promises =listings.map(async  listing => {
+            return await proccess(listing);
+        });
+        const promisesDone = Promise.all(promises);
+        console.log("finished getAll Details");
+        resolve(true);
+    })
+    
+}
+
+async function proccess(listing) {
+    return new Promise(async (resolve) => {
+        console.log(listing.priceInfo.priceCents / 100, listing.title);
+        resolve(true);
     })
 }
 
 async function buildModelsQuery(set) {
     const category = searchCategory(Array.from(set).pop());
     let stringModelQuery = '';
-    for(let modal of set){
-        if (modal && modal != null && modal != 'alle modellen'){
-            let formatedModal = modal.replace(' ','%20')
-            stringModelQuery += '&attributeLabels[]=' + formatedModal +'';
+    for (let modal of set) {
+        if (modal && modal != null && modal != 'alle modellen') {
+            let formatedModal = modal.replace(' ', '%20')
+            stringModelQuery += '&attributeLabels[]=' + formatedModal + '';
         }
     }
-    if (category && category.length > 0){
-        stringModelQuery += '&l1CategoryId='+ category[0].parentId +'&l2CategoryId='+category[0].id;
+    let valid = true;
+    if (category && category.length > 0) {
+        stringModelQuery += '&l1CategoryId=' + category[0].parentId + '&l2CategoryId=' + category[0].id;
+        valid = true;
     }
     else {
         stringModelQuery += '&l1CategoryId=820';
+        valid = false;
     }
-    return stringModelQuery;
+    return {string:stringModelQuery,valid:valid};
 }
