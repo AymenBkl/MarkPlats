@@ -52,8 +52,8 @@ async function getSheets(sheets,res,type){
         index = await getSheet.prepareAuth(sheets[index],index);
     }
     console.log('finished Auth');
-    index = 0;
-    while (index < sheetLength){
+    index =0;
+    while (index < sheetLength) {
         index = await getSheet.getSheet(sheets[index].link,index);
     }
     console.log('finished');
