@@ -10,8 +10,8 @@ module.exports.sendEmail = async (link,email,itemId,price,url,title) => {
                 resolve({status:false,msg:'item exist'});
             }
             else {
-                //resolve(await (createNotification(link,itemId,email)));
-                resolve(await sendEmail(link,price,url,itemId,email,title));
+                resolve(await (createNotification(link,itemId,email)));
+                //resolve(await sendEmail(link,price,url,itemId,email,title));
             }
         })
         .catch(err => {
@@ -45,7 +45,9 @@ async function sendEmail(link,price,url,itemId,email,title) {
         sendEmailNodeMailer.sendEmail('aymenxyz6@gmail.com','Hello We sent you this email from our api to tell you have found new offer for you.Title:  ' + title +' URL: https://www.marktplaats.nl/'+url+', itemId: ' +itemId + ',price: ' +price)
         .then(async (result) => {
             if (result && result.status) {
-                resolve(await createNotification(link,itemId,email));
+                setTimeout(async () => {
+                    resolve(await createNotification(link,itemId,email));
+                },2000)
             }
             else {
                 resolve({status:false,msg:"message not send"});

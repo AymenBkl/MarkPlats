@@ -9,21 +9,19 @@ const sendEmail = require('./sendEmail');
 
 let docs = new Map();
 const prepareRequest = require('./prepareRequest');
-module.exports.getSheet = (link) => {
-    accessSpreedSheet(link);
+module.exports.getSheet = async (link) => {
+    const promise = await accessSpreedSheet(link);
 }
 
 module.exports.prepareAuth = (store) => {
     return new Promise(async (resolve) => {
         let link = store.link;
-        setTimeout(async () => {
             docs.set(link, new GoogleSpreadsheet(link));
             await docs.get(link).useServiceAccountAuth({ client_email: creds.client_email, private_key: creds.private_key });
             await docs.get(link).loadInfo();
             console.log('authed');
             resolve(true);
 
-        },1500)
     })
 }
 
@@ -61,8 +59,8 @@ async function getProducts(sheetProduct, modelRows, user,link) {
         let keys = ['On / Off', 'Group', 'Rubric', 'Type', 'Storage', 'Condition Product', 'Maximum Price', 'Maximum Distance', 'Seller Active Since'];
     
         while (index < rows.length) {
-            console.log(index);
-            index = await constructQuery(rows[index], modelRows, user, index);
+            console.log(index,rows.length);
+            index = await constructQuery(rows[index], modelRows, user, index,link);
         }
         console.log('finished from while');
         resolve(true);
@@ -150,23 +148,23 @@ async function constructQuery(product, modelMap, user, i,link) {
             await nextPage(0,queryString,user,link);
             resolve(i+1);
         }
+        else {
+            resolve(i+1);
+        }
     })
 
 }
 
 async function nextPage(page,queryString,user,link) {
+    console.log('link',link);
     return new Promise(async (resolve) => {
         prepareRequest.prepareRequest(queryString)
         .then(async (result) => {
             setTimeout(async () => {
-                console.log(result)
-                console.log(user)
                 if (result && result.status && result.body) {
                     await getAllDetials(result.body.listings,user,link);
-                    console.log(result.body.listings[0]);
                     if (result.body.length == 100){
                         queryString.replace('offset=' + page,'offset=' + Number(page+1));
-                        console.log(queryString);
                         await nextPage(page+1,queryString,user,link);
                     }
                     else {
@@ -193,10 +191,10 @@ async function nextPage(page,queryString,user,link) {
 function getAllDetials(listings,user,link) {
     return new Promise(async (resolve) => {
         const promises =listings.map(async  listing => {
+            console.log(link);
             return await proccess(listing,user,link);
         });
         const promisesDone = Promise.all(promises);
-        console.log("finished getAll Details");
         resolve(true);
     })
     
@@ -206,7 +204,6 @@ async function proccess(listing,user,link) {
     return new Promise(async (resolve) => {
         sendEmail.sendEmail(link,user['E-mail'],listing.itemId,listing.priceInfo.priceCents,listing.vipUrl,listing.title)
             .then((result) => {
-                console.log(result);
                 resolve(true);
             })
             .catch(err => {

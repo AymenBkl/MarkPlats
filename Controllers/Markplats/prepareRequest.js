@@ -9,10 +9,15 @@ module.exports.prepareRequest = (url) => {
     return prepareRequest(url)
 }
 
+const headers = {
+  "Origin": "https://www.marktplaats.nl/",
+};
+
 function prepareRequest(url) {
     var options = {
         url: config.baseURL.url + url,
         method: 'GET',
+        headers: headers,
       };
       return new Promise((resolve,reject) => {
         callback = (error, response, body) => {
