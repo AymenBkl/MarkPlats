@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-const hashUniqueValidator = require('./validators/storeUniqueValidator');
 
 const storeUniqueValidator = require('./validators/storeUniqueValidator');
 

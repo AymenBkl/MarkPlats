@@ -5,6 +5,8 @@ const creds = require('./Markplats-00ab3a6d201e.json');
 
 const categories = require('./categories.json');
 
+const sendEmail = require('./sendEmail');
+
 let docs = new Map();
 const prepareRequest = require('./prepareRequest');
 module.exports.getSheet = (link) => {
@@ -34,7 +36,7 @@ async function accessSpreedSheet(link) {
         const sheetModels = doc.sheetsByIndex[4];
         const sheetUser = doc.sheetsByIndex[2];
         let productModels = await getUniqueModels(sheetModels);
-        await getProducts(sheetProduct, productModels, await getUser(sheetUser));
+        await getProducts(sheetProduct, productModels, await getUser(sheetUser),link);
         /**await sheet.loadCells('A1:I50');
         const a1 =  sheet.getCell(0,1);
         for(let i=0;i<50;i++){
@@ -52,7 +54,7 @@ async function getUser(sheetUser) {
 
 }
 
-async function getProducts(sheetProduct, modelRows, user) {
+async function getProducts(sheetProduct, modelRows, user,link) {
     return new Promise(async (resolve) => {
         const rows = await sheetProduct.getRows();
         let index = 0;
@@ -88,7 +90,7 @@ function searchCategory(reburiekModel) {
     return (categories.filter(category => category.fullName.includes(rebriekToSearch)));
 }
 
-async function constructQuery(product, modelMap, user, i) {
+async function constructQuery(product, modelMap, user, i,link) {
     return new Promise(async (resolve, reject) => {
         let queryString = 'limit=100&offset=0&sortBy=PRICE&viewOptions=list-view&searchInTitleAndDescription=true&sortOrder=DECREASING';
         queryString += '&postcode=' + user.Postal;
@@ -145,26 +147,27 @@ async function constructQuery(product, modelMap, user, i) {
         }
         console.log('entered', i, queryString + '\n');
         if (buildedModelsQuery.valid){
-            await nextPage(0,queryString);
+            await nextPage(0,queryString,user,link);
             resolve(i+1);
         }
     })
 
 }
 
-async function nextPage(page,queryString) {
+async function nextPage(page,queryString,user,link) {
     return new Promise(async (resolve) => {
         prepareRequest.prepareRequest(queryString)
         .then(async (result) => {
             setTimeout(async () => {
                 console.log(result)
+                console.log(user)
                 if (result && result.status && result.body) {
-                    await getAllDetials(result.body.listings);
+                    await getAllDetials(result.body.listings,user,link);
                     console.log(result.body.listings[0]);
                     if (result.body.length == 100){
                         queryString.replace('offset=' + page,'offset=' + Number(page+1));
                         console.log(queryString);
-                        await nextPage(page+1,queryString);
+                        await nextPage(page+1,queryString,user,link);
                     }
                     else {
                         resolve(true);
@@ -187,10 +190,10 @@ async function nextPage(page,queryString) {
     
 }
 
-function getAllDetials(listings) {
+function getAllDetials(listings,user,link) {
     return new Promise(async (resolve) => {
         const promises =listings.map(async  listing => {
-            return await proccess(listing);
+            return await proccess(listing,user,link);
         });
         const promisesDone = Promise.all(promises);
         console.log("finished getAll Details");
@@ -199,10 +202,16 @@ function getAllDetials(listings) {
     
 }
 
-async function proccess(listing) {
+async function proccess(listing,user,link) {
     return new Promise(async (resolve) => {
-        console.log(listing.priceInfo.priceCents / 100, listing.title);
-        resolve(true);
+        sendEmail.sendEmail(link,user['E-mail'],listing.itemId,listing.priceInfo.priceCents,listing.vipUrl,listing.title)
+            .then((result) => {
+                console.log(result);
+                resolve(true);
+            })
+            .catch(err => {
+                resolve(true);
+            })
     })
 }
 
