@@ -68,17 +68,14 @@ async function getProducts(sheetProduct, modelRows, user, link) {
         const rows = await sheetProduct.getRows();
         let index = 0;
         let keys = ['On / Off', 'Group', 'Rubric', 'Type', 'Storage', 'Condition Product', 'Maximum Price', 'Maximum Distance', 'Seller Active Since'];
-        let maxEmailSent = Math.floor(82/docs.size());
-        console.log(maxEmailSent)
         while (index < rows.length) {
-            /**if (rows[index]['On / Off'] == 'Off ☹'){
+            if (rows[index]['On / Off'] == 'Off ☹'){
                 index += 1;
                 console.log(true);
             }
             else {
                 index = await constructQuery(rows[index], modelRows, user, index,link);
-            }**/
-            index = await constructQuery(rows[index], modelRows, user, index, link);
+            }
         }
         console.log('finished from while');
         resolve(true);
@@ -222,15 +219,14 @@ function getAllDetials(listings, user, link) {
 
 async function proccess(listing, user, link, index) {
     return new Promise(async (resolve) => {
-        /**sendEmail.sendEmail(link,user['E-mail'],listing.itemId,listing.priceInfo.priceCents / 100,listing.vipUrl,listing.title)
+        sendEmail.sendEmail(link,user['E-mail'],listing.itemId,listing.priceInfo.priceCents / 100,listing.vipUrl,listing.title)
             .then((result) => {
                 resolve(index+1);
             })
             .catch(err => {
                 resolve(index+1);
-            })**/
+            })
         console.log(listing.title, listing.price);
-        resolve(index + 1);
     })
 }
 
@@ -264,5 +260,5 @@ async function buildModelsQuery(set) {
 
 
 function getModel(modal) {
-    return (models.filter(model => model.attributeValueId.includes(modal)));
+    return (models.filter(model => model.attributeValueLabel.includes(modal)));
 }
