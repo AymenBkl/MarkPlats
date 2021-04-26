@@ -7,11 +7,14 @@ const categories = require('./categories.json');
 
 const sendEmail = require('./sendEmail');
 
+const models = require('./models.json');
+
 let docs = new Map();
 const prepareRequest = require('./prepareRequest');
 module.exports.getSheet = async (link, index) => {
     const promise = await accessSpreedSheet(link, index);
 }
+
 
 module.exports.prepareAuth = (store, index) => {
     return new Promise(async (resolve) => {
@@ -37,6 +40,7 @@ module.exports.prepareAuth = (store, index) => {
 
 
 async function accessSpreedSheet(link, index) {
+    console.log(docs.size);
     return new Promise(async (resolve) => {
         const doc = docs.get(link);
         if (doc && doc != null) {
@@ -64,7 +68,8 @@ async function getProducts(sheetProduct, modelRows, user, link) {
         const rows = await sheetProduct.getRows();
         let index = 0;
         let keys = ['On / Off', 'Group', 'Rubric', 'Type', 'Storage', 'Condition Product', 'Maximum Price', 'Maximum Distance', 'Seller Active Since'];
-
+        let maxEmailSent = Math.floor(82/docs.size());
+        console.log(maxEmailSent)
         while (index < rows.length) {
             /**if (rows[index]['On / Off'] == 'Off ☹'){
                 index += 1;
@@ -175,8 +180,6 @@ async function nextPage(page, queryString, user, link) {
             .then(async (result) => {
                 setTimeout(async () => {
                     if (result && result.status && result.body) {
-                        console.log(result.body.searchRequest)
-                        
                         await getAllDetials(result.body.listings, user, link);
                         if (result.body.listings.length == 100) {
                             queryString = queryString.replace('offset=' + page * 100, 'offset=' + Number((page + 1) * 100));
@@ -234,21 +237,21 @@ async function proccess(listing, user, link, index) {
 async function buildModelsQuery(set) {
     const category = searchCategory(Array.from(set).pop());
     let stringModelQuery = '';
-    /**for (let modal of set) {
+    for (let modal of set) {
         if (modal && modal != null && modal != 'alle modellen') {
-            let formatedModal = modal.replace(' ', '%20')
-            stringModelQuery += '&attributeLabels[]=' + formatedModal + '';
+            const model = getModel(modal);
+            if (model && model.length > 0){
+                stringModelQuery += '&attributesById[]=' + model[0].attributeValueId + '';
+            }
         }
-    }**/
-    var it = set.values();
-    //get first entry:
-    var first = it.next();
-    let modal = first.value;
-    console.log(modal);
-    let formatedModal = modal.replace(' ', '%20');
-    stringModelQuery += '&attributesById[]=' + 11343 + '';
+    }
+    stringModelQuery += '&attributesById[]=' + 2357 + '';
     let valid = true;
     if (category && category.length > 0) {
+        const model = getModel(category[0].fullName);
+        if (model && model.length > 0){
+            stringModelQuery += '&attributesById[]=' + model[0].attributeValueId + '';
+        }
         stringModelQuery += '&l1CategoryId=' + category[0].parentId + '&l2CategoryId=' + category[0].id;
         valid = true;
     }
@@ -257,4 +260,9 @@ async function buildModelsQuery(set) {
         valid = false;
     }
     return { string: stringModelQuery, valid: valid };
+}
+
+
+function getModel(modal) {
+    return (models.filter(model => model.attributeValueId.includes(modal)));
 }

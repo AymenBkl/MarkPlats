@@ -1,0 +1,459 @@
+[
+    {
+      "attributeValueKey": "iPhone 2G Original",
+      "attributeValueId": 6856,
+      "attributeValueLabel": "iPhone 2G Original",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 3G",
+      "attributeValueId": 6857,
+      "attributeValueLabel": "iPhone 3G",
+      "histogramCount": 2,
+      "selected": true,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 3GS",
+      "attributeValueId": 6858,
+      "attributeValueLabel": "iPhone 3GS",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 4",
+      "attributeValueId": 6859,
+      "attributeValueLabel": "iPhone 4",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 4S",
+      "attributeValueId": 11342,
+      "attributeValueLabel": "iPhone 4S",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 5",
+      "attributeValueId": 11343,
+      "attributeValueLabel": "iPhone 5",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 5C",
+      "attributeValueId": 11344,
+      "attributeValueLabel": "iPhone 5C",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 5S",
+      "attributeValueId": 11345,
+      "attributeValueLabel": "iPhone 5S",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 6",
+      "attributeValueId": 11604,
+      "attributeValueLabel": "iPhone 6",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 6 Plus",
+      "attributeValueId": 11606,
+      "attributeValueLabel": "iPhone 6 Plus",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 6S",
+      "attributeValueId": 11605,
+      "attributeValueLabel": "iPhone 6S",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 6S Plus",
+      "attributeValueId": 12812,
+      "attributeValueLabel": "iPhone 6S Plus",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 7",
+      "attributeValueId": 11636,
+      "attributeValueLabel": "iPhone 7",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 7 Plus",
+      "attributeValueId": 11637,
+      "attributeValueLabel": "iPhone 7 Plus",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 8",
+      "attributeValueId": 11638,
+      "attributeValueLabel": "iPhone 8",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 8 Plus",
+      "attributeValueId": 11639,
+      "attributeValueLabel": "iPhone 8 Plus",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone X",
+      "attributeValueId": 11640,
+      "attributeValueLabel": "iPhone X",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "xs",
+      "attributeValueId": 11871,
+      "attributeValueLabel": "iPhone XS",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "xsmax",
+      "attributeValueId": 12813,
+      "attributeValueLabel": "iPhone XS Max",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "xr",
+      "attributeValueId": 11872,
+      "attributeValueLabel": "iPhone XR",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 11",
+      "attributeValueId": 11969,
+      "attributeValueLabel": "iPhone 11",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 11 Pro",
+      "attributeValueId": 12811,
+      "attributeValueLabel": "iPhone 11 Pro",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 11 Pro Max",
+      "attributeValueId": 12814,
+      "attributeValueLabel": "iPhone 11 Pro Max",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone SE",
+      "attributeValueId": 11968,
+      "attributeValueLabel": "iPhone SE (2016)",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone SE 2020",
+      "attributeValueId": 12815,
+      "attributeValueLabel": "iPhone SE (2020)",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 12 Mini",
+      "attributeValueId": 12816,
+      "attributeValueLabel": "iPhone 12 Mini",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 12",
+      "attributeValueId": 12817,
+      "attributeValueLabel": "iPhone 12",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 12 Pro",
+      "attributeValueId": 12818,
+      "attributeValueLabel": "iPhone 12 Pro",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "iPhone 12 Pro Max",
+      "attributeValueId": 12819,
+      "attributeValueLabel": "iPhone 12 Pro Max",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+      "attributeValueKey": "Overige typen",
+      "attributeValueId": 6860,
+      "attributeValueLabel": "Mobiele telefoons | Apple iPhone",
+      "selected": false,
+      "isValuableForSeo": true
+    },
+    {
+        "attributeValueKey": "Galaxy S2",
+        "attributeValueId": 11346,
+        "attributeValueLabel": "Galaxy S2",
+        "histogramCount": 1,
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy S3",
+        "attributeValueId": 11347,
+        "attributeValueLabel": "Galaxy S3",
+        "histogramCount": 2,
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy S4",
+        "attributeValueId": 11348,
+        "attributeValueLabel": "Galaxy S4",
+        "histogramCount": 102,
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy S5",
+        "attributeValueId": 11349,
+        "attributeValueLabel": "Galaxy S5",
+        "histogramCount": 1,
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy S6",
+        "attributeValueId": 11607,
+        "attributeValueLabel": "Galaxy S6",
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy S7",
+        "attributeValueId": 11608,
+        "attributeValueLabel": "Galaxy S7",
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy S8",
+        "attributeValueId": 11647,
+        "attributeValueLabel": "Galaxy S8",
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "galaxyS9",
+        "attributeValueId": 11880,
+        "attributeValueLabel": "Galaxy S9",
+        "histogramCount": 1,
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy Note 2",
+        "attributeValueId": 11350,
+        "attributeValueLabel": "Galaxy Note 2",
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy Note 3",
+        "attributeValueId": 11351,
+        "attributeValueLabel": "Galaxy Note 3",
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy Note 4",
+        "attributeValueId": 11648,
+        "attributeValueLabel": "Galaxy Note 4",
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy Note 5",
+        "attributeValueId": 11649,
+        "attributeValueLabel": "Galaxy Note 5",
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy Note 8",
+        "attributeValueId": 11650,
+        "attributeValueLabel": "Galaxy Note 8",
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "galaxyNote9",
+        "attributeValueId": 11881,
+        "attributeValueLabel": "Galaxy Note 9",
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy Ace 2",
+        "attributeValueId": 11352,
+        "attributeValueLabel": "Galaxy Ace 2",
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy Ace 3",
+        "attributeValueId": 11353,
+        "attributeValueLabel": "Galaxy Ace 3",
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy S3 Mini",
+        "attributeValueId": 11354,
+        "attributeValueLabel": "Galaxy S3 Mini",
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Galaxy S4 Mini",
+        "attributeValueId": 11355,
+        "attributeValueLabel": "Galaxy S4 Mini",
+        "histogramCount": 18,
+        "selected": false,
+        "isValuableForSeo": true
+      },
+      {
+        "attributeValueKey": "Overige modellen",
+        "attributeValueId": 11356,
+        "attributeValueLabel": "Mobiele telefoons | Samsung",
+        "histogramCount": 3,
+        "selected": false,
+        "isValuableForSeo": true
+      },
+
+      
+        {
+          "attributeValueKey": "iPad",
+          "attributeValueId": 2355,
+          "attributeValueLabel": "Apple iPad",
+          "histogramCount": 28,
+          "selected": false,
+          "isValuableForSeo": true
+        },
+        {
+          "attributeValueKey": "iPad Air",
+          "attributeValueId": 11233,
+          "attributeValueLabel": "Apple iPad Air",
+          "selected": false,
+          "isValuableForSeo": true
+        },
+        {
+          "attributeValueKey": "iPad Pro 1",
+          "attributeValueId": 11642,
+          "attributeValueLabel": "Apple iPad Pro",
+          "histogramCount": 67,
+          "selected": false,
+          "isValuableForSeo": true
+        },
+        {
+          "attributeValueKey": "Overige modellen",
+          "attributeValueId": 2357,
+          "attributeValueLabel": "Apple iPads",
+          "histogramCount": 18,
+          "selected": false,
+          "isValuableForSeo": true
+        },
+        {
+          "attributeValueKey": "iPad Mini",
+          "attributeValueId": 12853,
+          "attributeValueLabel": "Apple iPad Mini",
+          "selected": false,
+          "isValuableForSeo": true
+        },
+
+        
+            {
+              "attributeValueKey": "Original",
+              "attributeValueId": 13153,
+              "attributeValueLabel": "Original",
+              "histogramCount": 6,
+              "selected": false,
+              "isValuableForSeo": false
+            },
+            {
+              "attributeValueKey": "Slim",
+              "attributeValueId": 12051,
+              "attributeValueLabel": "Slim",
+              "histogramCount": 40,
+              "selected": false,
+              "isValuableForSeo": false
+            },
+            {
+              "attributeValueKey": "Pro",
+              "attributeValueId": 12052,
+              "attributeValueLabel": "Pro",
+              "histogramCount": 415,
+              "selected": false,
+              "isValuableForSeo": false
+            },
+            
+                {
+                  "attributeValueKey": "Xbox One",
+                  "attributeValueId": 12074,
+                  "attributeValueLabel": "Xbox One",
+                  "histogramCount": 248,
+                  "selected": false,
+                  "isValuableForSeo": true
+                },
+                {
+                  "attributeValueKey": "Xbox One S",
+                  "attributeValueId": 12075,
+                  "attributeValueLabel": "Xbox One S",
+                  "histogramCount": 80,
+                  "selected": false,
+                  "isValuableForSeo": true
+                },
+                {
+                  "attributeValueKey": "Xbox One S All-digital",
+                  "attributeValueId": 12076,
+                  "attributeValueLabel": "Xbox One S All-digital",
+                  "histogramCount": 6,
+                  "selected": false,
+                  "isValuableForSeo": true
+                },
+                {
+                  "attributeValueKey": "Xbox One X",
+                  "attributeValueId": 12077,
+                  "attributeValueLabel": "Xbox One X",
+                  "histogramCount": 8,
+                  "selected": false,
+                  "isValuableForSeo": true
+                }
+              
+          
+      
+
+  ]
+
+  
+  
