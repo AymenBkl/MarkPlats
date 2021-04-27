@@ -260,7 +260,6 @@ async function buildModelsQuery(set, queryString, user, link) {
             }
         }
     }
-    stringModelQuery += '&attributesById[]=' + 2357 + '';
 
     return { string: stringModelQuery, valid: valid };
 }
