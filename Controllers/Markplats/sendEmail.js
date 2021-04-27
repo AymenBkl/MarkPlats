@@ -61,7 +61,7 @@ async function sendEmail(link,price,url,itemId,email,title) {
                 resolve({status:false,msg:"message not send"});
     
             })
-        },1000);
+        },5000);
         })
        
     

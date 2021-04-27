@@ -69,12 +69,12 @@ async function getProducts(sheetProduct, modelRows, user, link) {
         let index = 0;
         let keys = ['On / Off', 'Group', 'Rubric', 'Type', 'Storage', 'Condition Product', 'Maximum Price', 'Maximum Distance', 'Seller Active Since'];
         while (index < rows.length) {
-            if (rows[index]['On / Off'] == 'Off ☹'){
+            if (rows[index]['On / Off'] == 'Off ☹') {
                 index += 1;
                 console.log(true);
             }
             else {
-                index = await constructQuery(rows[index], modelRows, user, index,link);
+                index = await constructQuery(rows[index], modelRows, user, index, link);
             }
         }
         console.log('finished from while');
@@ -108,10 +108,7 @@ async function constructQuery(product, modelMap, user, i, link) {
         let queryString = 'limit=100&offset=0&sortBy=PRICE&viewOptions=list-view&searchInTitleAndDescription=true&sortOrder=DECREASING';
         queryString += '&postcode=' + user.Postal;
         let buildedModelsQuery = { valid: false, queryString: '' };
-        if (product.Rubric && product.Rubric != null) {
-            buildedModelsQuery = await (await buildModelsQuery(modelMap.get(product.Rubric)))
-            queryString += buildedModelsQuery.string;
-        }
+
         if (product['Maximum Distance'] && product['Maximum Distance'] != null) {
             queryString += '&distanceMeters=' + product['Maximum Distance'] * 1000;
         }
@@ -158,6 +155,10 @@ async function constructQuery(product, modelMap, user, i, link) {
                 queryString += '&attributesById[]=' + 12820;
             }
         }
+        if (product.Rubric && product.Rubric != null) {
+            buildedModelsQuery = await (await buildModelsQuery(modelMap.get(product.Rubric), queryString, user, link))
+            queryString += buildedModelsQuery.string;
+        }
         console.log('entered', i, queryString + '\n');
         if (buildedModelsQuery.valid) {
             await nextPage(0, queryString, user, link);
@@ -182,6 +183,7 @@ async function nextPage(page, queryString, user, link) {
                             queryString = queryString.replace('offset=' + page * 100, 'offset=' + Number((page + 1) * 100));
                             console.log(queryString, page);
                             await nextPage(page + 1, queryString, user, link);
+                            resolve(true);
                         }
                         else {
                             resolve(true);
@@ -219,33 +221,24 @@ function getAllDetials(listings, user, link) {
 
 async function proccess(listing, user, link, index) {
     return new Promise(async (resolve) => {
-        sendEmail.sendEmail(link,user['E-mail'],listing.itemId,listing.priceInfo.priceCents / 100,listing.vipUrl,listing.title)
+        sendEmail.sendEmail(link, user['E-mail'], listing.itemId, listing.priceInfo.priceCents / 100, listing.vipUrl, listing.title)
             .then((result) => {
-                resolve(index+1);
+                resolve(index + 1);
             })
             .catch(err => {
-                resolve(index+1);
+                resolve(index + 1);
             })
         console.log(listing.title, listing.price);
     })
 }
 
-async function buildModelsQuery(set) {
+async function buildModelsQuery(set, queryString, user, link) {
     const category = searchCategory(Array.from(set).pop());
     let stringModelQuery = '';
-    for (let modal of set) {
-        if (modal && modal != null && modal != 'alle modellen') {
-            const model = getModel(modal);
-            if (model && model.length > 0){
-                stringModelQuery += '&attributesById[]=' + model[0].attributeValueId + '';
-            }
-        }
-    }
-    stringModelQuery += '&attributesById[]=' + 2357 + '';
     let valid = true;
     if (category && category.length > 0) {
         const model = getModel(category[0].fullName);
-        if (model && model.length > 0){
+        if (model && model.length > 0) {
             stringModelQuery += '&attributesById[]=' + model[0].attributeValueId + '';
         }
         stringModelQuery += '&l1CategoryId=' + category[0].parentId + '&l2CategoryId=' + category[0].id;
@@ -255,6 +248,20 @@ async function buildModelsQuery(set) {
         stringModelQuery += '&l1CategoryId=820';
         valid = false;
     }
+    for (let modal of set) {
+        if (modal && modal != null && modal != 'alle modellen') {
+            const model = getModel(modal);
+            if (model && model.length > 0) {
+                stringModelQuery += '&attributesById[]=' + model[0].attributeValueId + '';
+            }
+            else {
+                let structedModal = modal.replace(' ', '%20');
+                await nextPage(0, queryString + '&query=' + structedModal + stringModelQuery, user, link);
+            }
+        }
+    }
+    stringModelQuery += '&attributesById[]=' + 2357 + '';
+
     return { string: stringModelQuery, valid: valid };
 }
 

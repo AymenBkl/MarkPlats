@@ -3,7 +3,7 @@ module.exports.config = {
     https: 'https://192.168.1.104:3000',
     webURL: 'https://localhost:8100',  
     mongoDB: {
-            url : 'mongodb://192.168.1.104:27017/marktpalts',
+            url : 'mongodb://127.0.0.1:27017/marktpalts',
     },
     email:{
         user:' up.marktplaats.deals@gmail.com',
