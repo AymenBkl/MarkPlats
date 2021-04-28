@@ -108,7 +108,7 @@ async function constructQuery(product, modelMap, user, i, link) {
         let queryString = 'limit=100&offset=0&sortBy=PRICE&viewOptions=list-view&searchInTitleAndDescription=true&sortOrder=DECREASING';
         queryString += '&postcode=' + user.Postal;
         let buildedModelsQuery = { valid: false, queryString: '' };
-
+        let productSet = modelMap.get(product.Rubric);
         if (product['Maximum Distance'] && product['Maximum Distance'] != null) {
             queryString += '&distanceMeters=' + product['Maximum Distance'] * 1000;
         }
@@ -156,12 +156,12 @@ async function constructQuery(product, modelMap, user, i, link) {
             }
         }
         if (product.Rubric && product.Rubric != null) {
-            buildedModelsQuery = await (await buildModelsQuery(modelMap.get(product.Rubric), queryString, user, link))
+            buildedModelsQuery = await (await buildModelsQuery(productSet, queryString, user, link))
             queryString += buildedModelsQuery.string;
         }
         console.log('entered', i, queryString + '\n');
         if (buildedModelsQuery.valid) {
-            await nextPage(0, queryString, user, link);
+            await nextPage(0, queryString, user, link,Array.from(productSet));
             resolve(i + 1);
         }
         else {
@@ -171,25 +171,28 @@ async function constructQuery(product, modelMap, user, i, link) {
 
 }
 
-async function nextPage(page, queryString, user, link) {
-    console.log('link', link);
+async function nextPage(page, queryString, user, link,productSet) {
+    console.log('link', productSet);
     return new Promise(async (resolve) => {
         prepareRequest.prepareRequest(queryString)
             .then(async (result) => {
                 setTimeout(async () => {
+                    console.log(queryString);
                     if (result && result.status && result.body) {
                         await getAllDetials(result.body.listings, user, link);
                         if (result.body.listings.length == 100) {
                             queryString = queryString.replace('offset=' + page * 100, 'offset=' + Number((page + 1) * 100));
                             console.log(queryString, page);
-                            await nextPage(page + 1, queryString, user, link);
+                            await nextPage(page + 1, queryString, user, link,productSet);
                             resolve(true);
                         }
                         else {
+                            console.log('resolved length');
                             resolve(true);
                         }
                     }
                     else {
+                        console.log('resolved else');
                         resolve(true);
                     }
                 }, 1000)
@@ -197,6 +200,7 @@ async function nextPage(page, queryString, user, link) {
             })
             .catch(err => {
                 setTimeout(() => {
+                    console.log('resolved err');
                     console.log(err);
                     resolve(true);
                 }, 1000)
@@ -208,6 +212,7 @@ async function nextPage(page, queryString, user, link) {
 
 function getAllDetials(listings, user, link) {
     return new Promise(async (resolve) => {
+        console.log(listings);
         const listngsLenght = listings.length;
         let index = 0;
         while (index < listngsLenght) {
@@ -249,19 +254,24 @@ async function buildModelsQuery(set, queryString, user, link) {
         valid = false;
     }
     for (let modal of set) {
+        console.log('here');
         if (modal && modal != null && modal != 'alle modellen') {
             const model = getModel(modal);
             if (model && model.length > 0) {
                 stringModelQuery += '&attributesById[]=' + model[0].attributeValueId + '';
             }
             else {
-                let structedModal = modal.replace(' ', '%20');
-                await nextPage(0, queryString + '&query=' + structedModal + stringModelQuery, user, link);
+                let structedModal = modal.replace(' ', '%20').toLowerCase();
+                let result = await nextPage(0, queryString + '&query=' + structedModal + stringModelQuery, user, link,Array.from(set));
             }
         }
     }
 
     return { string: stringModelQuery, valid: valid };
+}
+
+async function checkIncludeTitle(){
+
 }
 
 
