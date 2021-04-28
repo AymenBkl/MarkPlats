@@ -180,6 +180,7 @@ async function nextPage(page, queryString, user, link, productSet) {
                 setTimeout(async () => {
                     if (result && result.status && result.body) {
                         await getAllDetials(result.body.listings, user, link, productSet);
+                        console.log(result.body.listings.length,page);
                         if (result.body.listings.length == 100) {
                             queryString = queryString.replace('offset=' + page * 100, 'offset=' + Number((page + 1) * 100));
                             await nextPage(page + 1, queryString, user, link, productSet);
@@ -192,14 +193,14 @@ async function nextPage(page, queryString, user, link, productSet) {
                     else {
                         resolve(true);
                     }
-                }, 1000)
+                }, 10000)
 
             })
             .catch(err => {
                 setTimeout(() => {
                     console.log(err);
                     resolve(true);
-                }, 1000)
+                }, 10000)
 
             })
     })
@@ -211,6 +212,7 @@ function getAllDetials(listings, user, link, products) {
         const listngsLenght = listings.length;
         let index = 0;
         while (index < listngsLenght) {
+            console.log(index,listings[index].title,listings[index].priceInfo.priceCents / 100);
             index = await proccess(listings[index], user, link, index, products)
         }
         resolve(true);
