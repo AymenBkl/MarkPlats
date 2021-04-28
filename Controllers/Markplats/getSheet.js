@@ -11,6 +11,7 @@ const models = require('./models.json');
 
 let docs = new Map();
 const prepareRequest = require('./prepareRequest');
+const { title } = require('process');
 module.exports.getSheet = async (link, index) => {
     const promise = await accessSpreedSheet(link, index);
 }
@@ -18,14 +19,11 @@ module.exports.getSheet = async (link, index) => {
 
 module.exports.prepareAuth = (store, index) => {
     return new Promise(async (resolve) => {
-        console.log(store.link);
         let link = store.link;
         try {
-            console.log(link);
             docs.set(link, new GoogleSpreadsheet(link));
             await docs.get(link).useServiceAccountAuth({ client_email: creds.client_email, private_key: creds.private_key });
             await docs.get(link).loadInfo();
-            console.log('authed', link);
             resolve(index + 1);
         }
         catch (err) {
@@ -40,7 +38,6 @@ module.exports.prepareAuth = (store, index) => {
 
 
 async function accessSpreedSheet(link, index) {
-    console.log(docs.size);
     return new Promise(async (resolve) => {
         const doc = docs.get(link);
         if (doc && doc != null) {
@@ -71,7 +68,6 @@ async function getProducts(sheetProduct, modelRows, user, link) {
         while (index < rows.length) {
             if (rows[index]['On / Off'] == 'Off ☹') {
                 index += 1;
-                console.log(true);
             }
             else {
                 index = await constructQuery(rows[index], modelRows, user, index, link);
@@ -86,7 +82,6 @@ async function getProducts(sheetProduct, modelRows, user, link) {
 async function getUniqueModels(modelsRows) {
     let modelsMap = new Map();
     const rowCounts = (await modelsRows.getRows()).length;
-    console.log(rowCounts, modelsRows.columnCount);
     await modelsRows.loadCells(`A1:ZZ${rowCounts}`);
     for (let i = 1; i < rowCounts; i++) {
         let modelsSet = new Set();
@@ -161,7 +156,7 @@ async function constructQuery(product, modelMap, user, i, link) {
         }
         console.log('entered', i, queryString + '\n');
         if (buildedModelsQuery.valid) {
-            await nextPage(0, queryString, user, link,Array.from(productSet));
+            await nextPage(0, queryString, user, link, Array.from(productSet));
             resolve(i + 1);
         }
         else {
@@ -171,28 +166,23 @@ async function constructQuery(product, modelMap, user, i, link) {
 
 }
 
-async function nextPage(page, queryString, user, link,productSet) {
-    console.log('link', productSet);
+async function nextPage(page, queryString, user, link, productSet) {
     return new Promise(async (resolve) => {
         prepareRequest.prepareRequest(queryString)
             .then(async (result) => {
                 setTimeout(async () => {
-                    console.log(queryString);
                     if (result && result.status && result.body) {
-                        await getAllDetials(result.body.listings, user, link);
+                        await getAllDetials(result.body.listings, user, link, productSet);
                         if (result.body.listings.length == 100) {
                             queryString = queryString.replace('offset=' + page * 100, 'offset=' + Number((page + 1) * 100));
-                            console.log(queryString, page);
-                            await nextPage(page + 1, queryString, user, link,productSet);
+                            await nextPage(page + 1, queryString, user, link, productSet);
                             resolve(true);
                         }
                         else {
-                            console.log('resolved length');
                             resolve(true);
                         }
                     }
                     else {
-                        console.log('resolved else');
                         resolve(true);
                     }
                 }, 1000)
@@ -200,7 +190,6 @@ async function nextPage(page, queryString, user, link,productSet) {
             })
             .catch(err => {
                 setTimeout(() => {
-                    console.log('resolved err');
                     console.log(err);
                     resolve(true);
                 }, 1000)
@@ -210,30 +199,36 @@ async function nextPage(page, queryString, user, link,productSet) {
 
 }
 
-function getAllDetials(listings, user, link) {
+function getAllDetials(listings, user, link, products) {
     return new Promise(async (resolve) => {
-        console.log(listings);
         const listngsLenght = listings.length;
         let index = 0;
         while (index < listngsLenght) {
-            console.log(index);
-            index = await proccess(listings[index], user, link, index)
+            index = await proccess(listings[index], user, link, index, products)
         }
         resolve(true);
     })
 
 }
 
-async function proccess(listing, user, link, index) {
+async function proccess(listing, user, link, index, products) {
+    let i = products.indexOf(null);
+    products.splice(i,1);
     return new Promise(async (resolve) => {
-        sendEmail.sendEmail(link, user['E-mail'], listing.itemId, listing.priceInfo.priceCents / 100, listing.vipUrl, listing.title)
-            .then((result) => {
-                resolve(index + 1);
-            })
-            .catch(err => {
-                resolve(index + 1);
-            })
-        console.log(listing.title, listing.price);
+        if (products.some(product => listing.title.toLowerCase().includes(product.toLowerCase()))) {
+            sendEmail.sendEmail(link, user['E-mail'], listing.itemId, listing.priceInfo.priceCents / 100, listing.vipUrl, listing.title)
+                        .then((result) => {
+                            resolve(index + 1);
+                        })
+                        .catch(err => {
+                            resolve(index + 1);
+                        })
+                    console.log(listing.title,listing.priceInfo.priceCents);
+        }
+        else {
+            resolve(index + 1);
+        }
+
     })
 }
 
@@ -254,7 +249,6 @@ async function buildModelsQuery(set, queryString, user, link) {
         valid = false;
     }
     for (let modal of set) {
-        console.log('here');
         if (modal && modal != null && modal != 'alle modellen') {
             const model = getModel(modal);
             if (model && model.length > 0) {
@@ -262,7 +256,7 @@ async function buildModelsQuery(set, queryString, user, link) {
             }
             else {
                 let structedModal = modal.replace(' ', '%20').toLowerCase();
-                let result = await nextPage(0, queryString + '&query=' + structedModal + stringModelQuery, user, link,Array.from(set));
+                let result = await nextPage(0, queryString + '&query=' + structedModal + stringModelQuery, user, link, Array.from(set));
             }
         }
     }
@@ -270,7 +264,7 @@ async function buildModelsQuery(set, queryString, user, link) {
     return { string: stringModelQuery, valid: valid };
 }
 
-async function checkIncludeTitle(){
+async function checkIncludeTitle() {
 
 }
 
