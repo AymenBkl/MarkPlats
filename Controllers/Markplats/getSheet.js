@@ -13,11 +13,15 @@ let docs = new Map();
 const prepareRequest = require('./prepareRequest');
 const { title } = require('process');
 module.exports.getSheet = async (link, index) => {
-    const promise = await accessSpreedSheet(link, index);
+    return new Promise(async (resolve) => {
+        const promise = await accessSpreedSheet(link, index);
+        resolve(promise);
+    })
 }
 
 
 module.exports.prepareAuth = (store, index) => {
+    
     return new Promise(async (resolve) => {
         let link = store.link;
         try {
@@ -47,7 +51,10 @@ async function accessSpreedSheet(link, index) {
             let productModels = await getUniqueModels(sheetModels);
             await getProducts(sheetProduct, productModels, await getUser(sheetUser), link);
 
-            resolve(true, index + 1);
+            resolve(index + 1);
+        }
+        else {
+            resolve(index+1)
         }
 
     })

@@ -29,7 +29,7 @@ async function getLinksLocal(res,type){
         })
     }
     else if (type == 'sheet'){
-        storeModel.find({expiration : {$gt:Date.now()}}) 
+        storeModel.find() 
         .then((links) => {
             console.log(links);
             if (links && links.length > 0){
