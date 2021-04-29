@@ -24,7 +24,7 @@ app.use(httpsRedirect);
 app.use(cors.corsWithOptions);
 
 sendEmail.createTransporter();
-app.use('/markplats',markPlatsRouter);
+app.use('/api/markplats',markPlatsRouter);
 markPlatsController.getSheet();
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
