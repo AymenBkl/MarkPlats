@@ -14,6 +14,7 @@ const prepareRequest = require('./prepareRequest');
 const { title } = require('process');
 module.exports.getSheet = async (link, index) => {
     return new Promise(async (resolve) => {
+        console.log('here');
         const promise = await accessSpreedSheet(link, index);
         resolve(promise);
     })
@@ -45,9 +46,9 @@ async function accessSpreedSheet(link, index) {
     return new Promise(async (resolve) => {
         const doc = docs.get(link);
         if (doc && doc != null) {
-            const sheetProduct = doc.sheetsByIndex[0];
-            const sheetModels = doc.sheetsByIndex[4];
-            const sheetUser = doc.sheetsByIndex[2];
+            const sheetProduct = doc.sheetsByTitle['Products'];
+            const sheetModels = doc.sheetsByTitle['rubriek_model'];
+            const sheetUser = doc.sheetsByTitle['Settings'];
             let productModels = await getUniqueModels(sheetModels);
             await getProducts(sheetProduct, productModels, await getUser(sheetUser), link);
 
