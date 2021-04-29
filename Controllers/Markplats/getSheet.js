@@ -119,7 +119,7 @@ async function constructQuery(product, modelMap, user, i, link) {
         queryString += await affectPrice(queryString,product);
         queryString += await affectStorage(queryString,product);
         queryString += await affectCondition(queryString,product);
-        
+        queryString += await affectLognPlace(queryString,product);
         if (product.Rubric && product.Rubric != null) {
             buildedModelsQuery = await (await buildModelsQuery(productSet, queryString, user, link))
             queryString += buildedModelsQuery.string;
@@ -197,24 +197,37 @@ async function affectStorage(queryString,product){
 
 async function affectCondition(queryString,product){
     return new Promise((resolve) => {
+        let newQueryString = '';
         if (product['Condition Product'] && product['Condition Product'] != null) {
-            let newQueryString = '';
-            if (product['Condition Product'] == 'New') {
+            if (product['Condition Product'] == 'Nieuw') {
                 newQueryString += '&attributesById[]=' + 30;
             }
-            else if (product['Condition Product'] == 'Used') {
+            else if (product['Condition Product'] == 'Gebruikt') {
                 newQueryString += '&attributesById[]=' + 32;
             }
-            else if (product['Condition Product'] == 'As good as new') {
+            else if (product['Condition Product'] == 'Zo goed als nieuw') {
                 newQueryString += '&attributesById[]=' + 31;
             }
             else {
                 newQueryString += '&attributesById[]=' + 31 + '&attributesById[]=' + 32 + '&attributesById[]=' + 30;
             }
+            console.log('newQueryString',newQueryString);
             resolve(newQueryString);
         }
         else {
             resolve(newQueryString);
+        }
+    })
+}
+
+async function affectLognPlace(queryString,product){
+    return new Promise((resolve) => {
+        if (product['How Long Placed'] && product['How Long Placed'] != null){
+            let longPlace = product['How Long Placed'].replace(' ','%20');
+            resolve('&attributesByKey[]=offeredSince%3A'+longPlace);
+        }
+        else {
+            resolve('');
         }
     })
 }
