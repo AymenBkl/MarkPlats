@@ -51,11 +51,14 @@ async function accessSpreedSheet(link, index) {
             const sheetUser = doc.sheetsByTitle['Settings'];
             let productModels = await getUniqueModels(sheetModels);
             await getProducts(sheetProduct, productModels, await getUser(sheetUser), link);
-
-            resolve(index + 1);
+            setTimeout(() => {
+                resolve(index + 1);
+            },2000);
         }
         else {
-            resolve(index+1)
+            setTimeout(() => {
+                resolve(index+1)
+            },2000)
         }
 
     })
