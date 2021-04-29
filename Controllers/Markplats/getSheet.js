@@ -111,7 +111,7 @@ function searchCategory(reburiekModel) {
 
 async function constructQuery(product, modelMap, user, i, link) {
     return new Promise(async (resolve, reject) => {
-        let queryString = 'limit=100&offset=0&sortBy=PRICE&viewOptions=list-view&searchInTitleAndDescription=true&sortOrder=INCREASING';
+        let queryString = 'limit=100&offset=0&sortBy=PRICE&viewOptions=list-view&searchInTitleAndDescription=true&sortOrder=DECREASING';
         queryString += '&postcode=' + user.Postal;
         let buildedModelsQuery = { valid: false, queryString: '' };
         let productSet = modelMap.get(product.Rubric);
@@ -184,9 +184,10 @@ async function nextPage(page, queryString, user, link, productSet) {
                 setTimeout(async () => {
                     if (result && result.status && result.body) {
                         await getAllDetials(result.body.listings, user, link, productSet);
-                        console.log(result.body.listings.length,page);
+                        console.log(result.body.listings.length,page,result.body.listings.length == 100 && page < 3);
                         if (result.body.listings.length == 100 && page < 3) {
                             queryString = queryString.replace('offset=' + page * 100, 'offset=' + Number((page + 1) * 100));
+                            await nextPage(page + 1, queryString, user, link, productSet);
                             resolve(true);
                         }
                         else {
