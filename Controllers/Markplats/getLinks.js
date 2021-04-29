@@ -59,5 +59,5 @@ async function getSheets(sheets,res,type){
     console.log('finished');
     setTimeout(async () => {
         getLinksLocal(res,type);
-    },3600)
+    },3600000)
 }

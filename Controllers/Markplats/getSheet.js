@@ -53,12 +53,12 @@ async function accessSpreedSheet(link, index) {
             await getProducts(sheetProduct, productModels, await getUser(sheetUser), link);
             setTimeout(() => {
                 resolve(index + 1);
-            },2000);
+            },1800000);
         }
         else {
             setTimeout(() => {
                 resolve(index+1)
-            },2000)
+            },1800000)
         }
 
     })
