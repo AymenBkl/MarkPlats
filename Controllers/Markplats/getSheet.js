@@ -45,6 +45,7 @@ module.exports.prepareAuth = (store, index) => {
 async function accessSpreedSheet(link, index) {
     return new Promise(async (resolve) => {
         const doc = docs.get(link);
+        await doc.loadInfo();
         if (doc && doc != null) {
             const sheetProduct = doc.sheetsByTitle['Products'];
             const sheetModels = doc.sheetsByTitle['rubriek_model'];
